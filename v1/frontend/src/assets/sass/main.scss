@@ -1,0 +1,11 @@
+@use "./mixins" as mixins;
+@use "./variables" as variables;
+
+html {
+  font-size: 62.5%;
+}
+.container {
+  &--full {
+    
+  }
+}
