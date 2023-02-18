@@ -1,0 +1,70 @@
+@use "./mixins" as mixins;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+:root {
+  --color-header-background: #dde1cd;
+  --color-main-background: #f7f9f0;
+  --color-primary-green: #637a30;
+  --color-natural-disaster: #b91d1d;
+  --color-education: #1d81b9;
+  --color-personal-needs: #b3cc17;
+  --color-nutrition: #0d921b;
+  --color-scholarship: #6a1ca6;
+  --color-institutions: #a8690b;
+  --color-clothes: #0f4632;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --background-opacity: 0.4;
+  --font-family-poppins: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+html {
+  font-size: 62.5%;
+  @include mixins.responsive(desktop) {
+    font-size: 70%;
+  }
+}
+body {
+  font-family: var(--font-family-poppins);
+  background-color: var(--color-main-background);
+}
+button {
+  padding: 1.2rem 2.4rem;
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.container {
+  width: 140rem;
+  margin-inline: auto;
+  &--full {
+    width: 100%;
+  }
+  &--small {
+    width: 100%;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+  &--2-1 {
+    grid-template-columns: 2fr 1fr;
+  }
+  &--1-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
