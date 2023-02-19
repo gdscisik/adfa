@@ -7,7 +7,6 @@ import HomePage from "../views/HomePage.vue";
 import LoginPage from "../views/LoginPage.vue";
 import RegisterPage from "../views/RegisterPage.vue";
 import AccountPage from "../views/AccountPage.vue";
-//import FavoritesPage from "../views/FavoritesPage.vue";
 import DonatePage from "../views/DonatePage.vue";
 //import store from "../store";
 const routes = [
@@ -30,6 +29,26 @@ const routes = [
     path: "/account",
     name: "Account",
     component: AccountPage,
+  },
+  {
+    path: "/campaigns",
+    name: "Campaigns",
+    component: CampaignsPage,
+  },
+  {
+    path: "/categories",
+    name: "Categories",
+    component: CategoriesPage,
+  },
+  {
+    path: "/forum",
+    name: "Forum",
+    component: ForumPage,
+  },
+  {
+    path: "/reports",
+    name: "Reports",
+    component: ReportsPage,
   },
   {
     path: "/donate",
