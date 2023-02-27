@@ -128,6 +128,7 @@ provide("RequestList", donateRequestList);
 <style lang="scss">
 .donate-request {
   padding: 2.4rem;
+  overflow: hidden;
   // margin-bottom: 10rem;
   margin: {
     top: 3.6rem;

@@ -30,7 +30,7 @@ const routes = [
     name: "Account",
     component: AccountPage,
   },
-  {
+  /* {
     path: "/campaigns",
     name: "Campaigns",
     component: CampaignsPage,
@@ -49,7 +49,7 @@ const routes = [
     path: "/reports",
     name: "Reports",
     component: ReportsPage,
-  },
+  }, */
   {
     path: "/donate",
     name: "Donate",

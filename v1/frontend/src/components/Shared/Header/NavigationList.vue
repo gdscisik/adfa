@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import NavigationListItem from "./NavigationListItem.vue";
+import NavigationListItem from "../Header/NavigationListItem.vue";
 const destinations = ref([
   { title: "Home", id: 1 },
   { title: "About Us", id: 2 },
