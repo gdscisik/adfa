@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Home",
+    "\\src\\components\\Shared",
+    "\\src\\components\\Shared\\Sidebar",
+    "\\src\\router",
+    "\\src\\store",
+    "\\src\\utils",
+    "\\src\\views"
+  ],
+  "SelectedNode": "\\src\\main.js",
+  "PreviewInSolutionExplorer": false
+}

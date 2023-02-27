@@ -1,31 +1,14 @@
 const functions = require("firebase-functions");
 
 // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase-admin/app";
+import { getAnalytics } from "firebase/analytics";
+import { getDatabase, ref, set, get } from "firebase/database";
 const firebase = require("firebase/app");
 require('firebase/database');
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const mongoose = require("mongoose");
-
-// const db = mongoose.connection;
-// db.once("open", () => {
-//   console.log("Database connected successfully.");
-// });
-const connectDatabase = async () => {
-    await mongoose.connect(
-        mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME},
-        {
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-        }
-    );
-    console.log("Database connected successfully.");
-};
-
-module.exports = {
-    connectDatabase,
-};
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -40,7 +23,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 
 var userID = "userID"
 var firebaseRef = firebase.database()

@@ -1,7 +1,6 @@
 {
   "name": "asana-clone",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon src/index.js"
@@ -28,5 +27,6 @@
     "pug-plain-loader": "^1.1.0",
     "uuid": "^9.0.0",
     "winston": "^3.8.1"
-  }
+  },
+  "description": ""
 }
