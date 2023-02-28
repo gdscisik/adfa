@@ -1,7 +1,14 @@
-const SectionsService = require("../services/DonateRequestService.js");
+const CampaignService = require("../services/CampaignService.js");
+const { Query } = require("firefose");
 const getAll = async (req, res) => {
-  const sections = await SectionsService.findAll();
-  res.render("sections", { sections: sections });
+  const query = new Query();
+  console.log('query.condtions :>> ', query.conditions);
+  console.log('query.condtions.length :>> ', query.conditions.length);
+  const campaigns = await CampaignService.findAll();
+  const data = await CampaignService.create({ username: "c1", email: "asdasd"});
+  // query.where('username', '==', 'c1');
+  const result = await CampaignService.update(query, { username: 'c2' })
+  res.render("campaign", { campigns: campaigns });
 };
 const getById = async (req, res) => {
   const section = await SectionsService.findById(req.params.id);

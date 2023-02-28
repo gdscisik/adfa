@@ -1,9 +1,11 @@
+// const db = require('../loaders');
 module.exports = class Service {
   async findAll() {
     return this.model.find();
   }
   async findById(itemId) {
     return this.model.findById(itemId);
+
   }
   async add(item) {
     return this.model.create(item);
@@ -17,7 +19,4 @@ module.exports = class Service {
   async update(item, data) {
     return this.model.findOneAndUpdate(item, data, { new: true });
   }
-  // async findByProperty(key, value) {
-  //   return this.model.find({ key: value });
-  // }
 };

@@ -11,7 +11,6 @@ loaders();
 events();
 const PORT = process.env.APP_PORT || 3232;
 const app = express();
-
 app.use("/uploads", express.static(path.join(__dirname, "./", "uploads")));
 app.use(express.json());
 app.use(helmet());
@@ -26,15 +25,41 @@ app.use("/users", UserRouter);
 
 app.get("/", (req, res) => {
   //res.send("osman");
-  res.render("index");
+  const myData = {
+    email: req.body.email,
+    username: req.body.username,
+  };
+  console.log('data get :>> ', myData);
+  res.render("index", { data: myData });
 });
 
+app.post("/deneme", async (req, res) => {
+  //res.send("osman");
+  const myData = {
+    email: req.body.email,
+    username: req.body.username,
+  };
+  const item = await BaseService.setItem(myData);
+  console.log('deneme post :>> ', myData);
+  console.log('deneme post item :>> ', item);
+  res.send(myData);
+  // res.render("deneme", {data: myData});
+});
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-var firebaseRef = firebase.database().ref('emails');
-document.querySelector('#button button--help-anyone').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    firebaseRef.push("dyyenice@gmail.com");
-});
+// var firebaseRef = firebase.database().ref('emails');
+// document.querySelector('#button button--help-anyone').addEventListener('click', () => {
+//     const email = document.getElementById('email').value;
+//     firebaseRef.push("dyyenice@gmail.com");
+// });
+
+// var firebaseRef = firebase.database().ref('emails');
+// const form = document.querySelector('#send');
+// form.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const email = document.getElementById('email').value;
+//   firebaseRef.push(email);
+// });
+
