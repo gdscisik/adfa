@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
   };
   console.log('data get :>> ', myData);
   res.render("index", { data: myData });
+  res.send(myData);
 });
 
 app.post("/deneme", async (req, res) => {
@@ -39,9 +40,9 @@ app.post("/deneme", async (req, res) => {
     email: req.body.email,
     username: req.body.username,
   };
-  const item = await BaseService.setItem(myData);
+
   console.log('deneme post :>> ', myData);
-  console.log('deneme post item :>> ', item);
+  
   res.send(myData);
   // res.render("deneme", {data: myData});
 });
