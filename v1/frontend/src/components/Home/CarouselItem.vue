@@ -1,6 +1,7 @@
 <template lang="pug">
 .carousel__item.carousel__item--active(v-if="props.itemData.isActive" )  
-  img(:src="props.itemData.source")
+  RouterLink(to="/donate") 
+    img(:src="props.itemData.source")
   //button(@click="props.itemData.isActive = !props.itemData.isActive") activate
 //h3(v-else) {{ props.itemData.isActive }}
 </template>
