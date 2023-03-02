@@ -23,44 +23,13 @@ app.use("/campaigns", CampaignRouter);
 app.use("/requests", DonateRequestRouter);
 app.use("/users", UserRouter);
 
-app.get("/", (req, res) => {
-  //res.send("osman");
-  const myData = {
-    email: req.body.email,
-    username: req.body.username,
-  };
-  console.log('data get :>> ', myData);
-  res.render("index", { data: myData });
-  res.send(myData);
-});
+const DonateRequestService = require('./services/DonateRequestService');
+const UsersService = require('./services/UsersService');
+const CampaignService = require('./services/CampaignService');
+app.get("/", async (req, res) => {
+  res.render("index");
+})
 
-app.post("/deneme", async (req, res) => {
-  //res.send("osman");
-  const myData = {
-    email: req.body.email,
-    username: req.body.username,
-  };
-
-  console.log('deneme post :>> ', myData);
-  
-  res.send(myData);
-  // res.render("deneme", {data: myData});
-});
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
-
-// var firebaseRef = firebase.database().ref('emails');
-// document.querySelector('#button button--help-anyone').addEventListener('click', () => {
-//     const email = document.getElementById('email').value;
-//     firebaseRef.push("dyyenice@gmail.com");
-// });
-
-// var firebaseRef = firebase.database().ref('emails');
-// const form = document.querySelector('#send');
-// form.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   const email = document.getElementById('email').value;
-//   firebaseRef.push(email);
-// });
-

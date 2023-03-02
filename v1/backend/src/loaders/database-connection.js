@@ -1,9 +1,16 @@
 const { initializeApp } = require('firebase/app');
-const { getDatabase, ref, set } = require("firebase/database");
+const { getFirestore } = require("firebase/firestore");
+// const { getDatabase, ref, set } = require("firebase/firestore");
 const { connect } = require("firefose");
 const firebase = require("firebase/app");
 
-const firebaseConfig = {
+var admin = require("firebase-admin");
+
+var serviceAccount = require("../../serviceaccountkey.json");
+
+
+
+/*const firebaseConfig = {
 	"type": "service_account",
 	"project_id": "adfa-world",
 	"private_key_id": "e6d65707d0f9ba17930866c106f4e54516f0c7db",
@@ -14,25 +21,16 @@ const firebaseConfig = {
 	"token_uri": "https://oauth2.googleapis.com/token",
 	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
 	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-6qzbg%40adfa-world.iam.gserviceaccount.com"
-};
+};*/
 // const app = initializeApp(firebaseConfig);
 // initializeApp(firebaseConfig);
 //const database = getDatabase();
 const connectDatabase = async () => {
-	await connect(firebaseConfig, "https://adfa-world-default-rtdb.firebaseio.com/");
-	// await getDatabase();
-	//await connect(firebaseConfig, "https://adfa-world-default-rtdb.firebaseio.com/")
-	/*set(ref(database, 'users/' + 1256), {
-		username: "dyy",
-		email: "dyyenice@gmail.com",
-		profile_picture: "imageUrl"
-	})
-		.then(() => {
-			console.log("succesfull");
-		})
-		.catch((error) => {
-			console.log("fail");
-		});*/
+	//await connect(firebaseConfig, "https://adfa-world-default-rtdb.firebaseio.com/");
+	await admin.initializeApp({
+		credential: admin.credential.cert(serviceAccount),
+		databaseURL: "https://adfa-world-default-rtdb.firebaseio.com/"
+	});
 }
 module.exports = {
 	connectDatabase,

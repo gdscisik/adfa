@@ -1,12 +1,17 @@
 // const db = require('../loaders');
 module.exports = class Service {
-  async findAll() {
+  async findAll(query) {
+    return this.model.find(query);
+  }
+  /* async findAll() {
     return this.model.find();
+  } */
+  async findById(query) {
+    return this.model.find(query);
   }
-  async findById(itemId) {
+  /* async findById(itemId) {
     return this.model.findById(itemId);
-
-  }
+  } */
   async add(item) {
     return this.model.create(item);
   }
