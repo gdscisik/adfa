@@ -1,24 +1,27 @@
 <template lang="pug">
-button.button.button--category-donate(:style="{'background-color': props.buttonColor}") Donate 
+//- RouterLink(to=`/campaigns/${props.campaignItem.campaignId}`).button.button--category-donate Donate 
+button.button.button--donate 
+  RouterLink(to=`/campaigns/15`) Donate 
 </template>
 <style lang="scss">
-button.button--category-donate {
+button.button--donate {
+  background-color: var(--color-primary-green);
   color: var(--color-white);
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  border: 2px solid var(--color-white);
-  margin-top: 1.4rem;
-  padding: 1.2rem 2.8rem;
-  text-transform: uppercase;
+  width: 85%;
+  margin-inline: auto;
+  padding: 1.2rem 2.4rem;
+  margin-top: 2.4rem;
+  & > a {
+    justify-content: center;
+  }
 }
 </style>
 <script setup>
 const props = defineProps({
-  buttonColor: {
-    type: String,
+  campaignItem: {
+    type: Object,
     required: true,
-    default: "transparent",
+    default: {},
   },
 });
 </script>

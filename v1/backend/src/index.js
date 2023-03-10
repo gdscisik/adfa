@@ -9,7 +9,7 @@ const { CampaignRouter, DonateRequestRouter, UserRouter } = require("./routes");
 config();
 loaders();
 events();
-const PORT = process.env.APP_PORT || 3232;
+const PORT = process.env.APP_PORT || 5173;
 const app = express();
 
 app.use("/uploads", express.static(path.join(__dirname, "./", "uploads")));
