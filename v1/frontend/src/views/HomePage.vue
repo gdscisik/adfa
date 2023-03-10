@@ -15,7 +15,8 @@ main.container.grid.grid--2-1
     WhatWeAreComponent
     CategoryComponent
   DonateRequestSidebar
-  CampaignSlider
+CampaignSlider.container
+//- CampaignSlider.container.container--full
 FooterComponent
 </template>
 <style lang="scss"></style>

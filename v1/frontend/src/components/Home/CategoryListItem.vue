@@ -5,10 +5,10 @@ div.card
     div
       h3.card__side__title For {{ props.categoryItem.name }}
       p.card__side__description {{ props.categoryItem.description }}
-      DonateButtonComponent(:buttonColor="props.categoryItem.category_color")
+      CategoryDonateButtonComponent(:buttonColor="props.categoryItem.category_color")
 </template>
 <script setup>
-import DonateButtonComponent from "../Shared/DonateButtonComponent.vue";
+import CategoryDonateButtonComponent from "../Shared/CategoryDonateButtonComponent.vue";
 const props = defineProps({
   categoryItem: {
     type: Object,

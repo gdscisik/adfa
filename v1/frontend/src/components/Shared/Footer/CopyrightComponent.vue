@@ -5,8 +5,8 @@ div.container.container--full.copyright
 <style lang="scss">
 .copyright {
   background-color: var(--color-primary-green);
-  padding: 3.2rem 1.8rem;
-  font-size: 2.4rem;
+  padding: 2.4rem 1.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-header-background);
   text-align: center;
