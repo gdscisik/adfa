@@ -1,4 +1,15 @@
 extends layout
 block content
   div.container
-    h3 Index Pug
+    //- h3 Index Pug
+    //- form(method="post" action="/login/google")
+    //-   input(type="text", name="email")
+    //-   input(type="text", name="username")
+    //-   //button(id="send" type="submit") send 
+    //-   button(id="signInWithGoogle" type="submit") sign with Google
+    //- pre #{data}
+    form(action="/categories", method="post")
+      input(type="text", name="email")
+      input(type="text", name="username")
+      button(type="submit")  POST
+    pre #{category}
