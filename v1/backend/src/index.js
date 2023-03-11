@@ -36,6 +36,7 @@ const UsersService = require('./services/UsersService');
 const CampaignService = require('./services/CampaignService');
 app.get("/", async (req, res) => {
   res.render("index");
+});
 // app.post("/login/google", async (auth, provider) => {
 //  await auth.signInWithPopup(auth, provider)
 //   .then((result) => {
