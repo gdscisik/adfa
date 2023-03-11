@@ -1,9 +1,14 @@
+const auth = require('firebase/auth');
+const { signInWithPopup, GoogleAuthProvider } = require("firebase/auth");
+const provider = new GoogleAuthProvider();
 const UsersService = require("../services/UsersService.js");
 const CampaignsService = require("../services/CampaignService.js");
 const uuid = require("uuid");
 const eventEmitter = require("../scripts/events/EventEmitter.js");
 const { passwordToHash } = require("../scripts/utils/HashPassword.js");
 const path = require("path");
+
+
 const {
   generateAccessToken,
   generateRefreshToken,
@@ -27,6 +32,23 @@ const removeUser = async (req, res) => {
   const itemId = await UsersService.delete(req.params.id);
   res.render("users");
 };
+
+const signInWithGoogle = async () => {
+
+  auth.signInWithPopup(auth, provider)
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+  })
+  .catch(error => {
+    console.error(error);
+  })
+}
+
+
+
 const login = async (req, res) => {
   req.body.password = passwordToHash(req.body.password);
   let loggedInUser = await UsersService.login(req.body);
@@ -125,6 +147,8 @@ module.exports = {
   updateUserData,
   changePassword,
   updateProfileImage,
+  signInWithGoogle,
+  signInWithPopup,
 };
 
 

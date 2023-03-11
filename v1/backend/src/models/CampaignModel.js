@@ -1,3 +1,53 @@
+
+const {Schema, SchemaTypes, Model} = require("firefose");
+const { String, Boolean, Date, Number} = SchemaTypes;
+
+const CampaignSchema = new Schema({
+  campaignId: {
+    type: Number,
+    required: true,
+  },
+  imageSource: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  fromDate: {
+    type: Date,
+    required: true,
+  },
+  toDate: {
+    type: Date,
+    required: true,
+  },
+  targetAmount: {
+    type: Number,
+    required: true,
+  },
+  creatorId: {
+    type: SchemaTypes.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  createdCountry: {
+    type: String,
+    required: true,
+  },
+  isActive: {
+    type: Boolean,
+    required: true,
+  },
+}, {timestamp: true});
+
+const CampaignModel = new Model("Campaign", CampaignSchema);
+module.exports = CampaignModel;
 /*const mongoose = require("mongoose");
 const ProjectLogger = require("../scripts/logger/CampaignLogger.js");
 
