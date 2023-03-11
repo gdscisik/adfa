@@ -2,12 +2,12 @@
 footer.footer 
   div.container.flex
     div.footer__logo
-      RouterLink(:to="{name: Home}")
+      RouterLink(:to="{name: 'Home'}")
         img(src="@/assets/images/icons/adfa-logo-dikey.svg")
     FooterListComponent(title="Contact" :list="contactData")
     FooterListComponent(title="Sitemap" :list="sitemapData")
     div.footer__logo
-      RouterLink(:to="{name: Home}")
+      RouterLink(:to="{name: 'Home'}")
         img(src="@/assets/images/icons/adfa-logo-dikey.svg")
 CopyrightComponent
 </template>

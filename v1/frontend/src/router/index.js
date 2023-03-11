@@ -13,7 +13,7 @@ import ForumPage from "../views/ForumPage.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "Main",
     component: HomePage,
   },
   {

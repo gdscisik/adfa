@@ -1,6 +1,6 @@
 <template lang="pug">
 button.button.button--see-more 
-  RouterLink(to="/forum") See More
+  RouterLink(:to="{name: 'Forum'}") See More
 </template>
 <style lang="scss">
 button.button--see-more {

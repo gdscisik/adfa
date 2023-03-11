@@ -1,7 +1,7 @@
 <template lang="pug">
 //- RouterLink(to=`/campaigns/${props.campaignItem.campaignId}`).button.button--category-donate Donate 
 button.button.button--donate 
-  RouterLink(to=`/campaigns/15`) Donate 
+  RouterLink(:to='`/campaigns/${props.campaignItemId}`') Donate 
 </template>
 <style lang="scss">
 button.button--donate {
@@ -19,10 +19,9 @@ button.button--donate {
 </style>
 <script setup>
 const props = defineProps({
-  campaignItem: {
-    type: Object,
+  campaignItemId: {
+    type: Number,
     required: true,
-    default: {},
   },
 });
 </script>

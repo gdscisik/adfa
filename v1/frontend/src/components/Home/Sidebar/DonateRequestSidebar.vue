@@ -5,11 +5,9 @@ aside.donate-request
   SeeMoreDonateRequestButton
 </template>
 <script setup>
-import { inject, provide, ref } from "vue";
+import { ref } from "vue";
 import DonateRequestList from "./DonateRequestList.vue";
 import SeeMoreDonateRequestButton from "@/components/Shared/SeeMoreDonateRequestButton.vue";
-
-const donateRequestList = inject("RequestList");
 </script>
 <style lang="scss">
 .donate-request {

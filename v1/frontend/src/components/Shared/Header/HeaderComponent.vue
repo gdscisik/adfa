@@ -7,7 +7,7 @@ header
   div.container.grid
     nav.nav 
       div.navigation__logo 
-        RouterLink(:to="{name: Home}")  
+        RouterLink(:to="{name: 'Main'}")  
           img(src="@/assets/images/icons/adfa-logo-yatay.svg")
       NavigationList
       HelpAnyoneButtonComponent

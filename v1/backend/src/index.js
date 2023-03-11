@@ -12,6 +12,9 @@ events();
 const PORT = process.env.APP_PORT || 5173;
 const app = express();
 
+// const TEMP_DOMAIN = "http://localhost:5173";
+// const stripe = require('stripe')('sk_test_51MeWRlHUYABYDzrmcrBrgT0XmuhYwfJafZstytkoaWov6ZFreRDGZ3pypN7Hi4zSqNRjNHG4Fi1a86CPV4IXHN44000brTb2ow');
+
 app.use("/uploads", express.static(path.join(__dirname, "./", "uploads")));
 app.use(express.json());
 app.use(helmet());
@@ -28,13 +31,23 @@ app.get("/", (req, res) => {
   //res.send("osman");
   res.render("index");
 });
-
+// app.post("/checkout", async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     line_items: [
+//       {
+//         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+//         price: 'price_1MkI2FHUYABYDzrm3UHtdMy7',
+//         quantity: 1,
+//       },
+//     ],
+//     mode: 'payment',
+//     success_url: `${YOUR_DOMAIN}/success.html`,
+//     cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+//     automatic_tax: {enabled: true},
+//   });
+//   res.redirect(303, session.url);
+// });
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-var firebaseRef = firebase.database().ref('emails');
-document.querySelector('#button button--help-anyone').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    firebaseRef.push("dyyenice@gmail.com");
-});

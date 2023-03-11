@@ -1,20 +1,11 @@
-const functions = require("firebase-functions");
-
-// Import the functions you need from the SDKs you need
-const firebase = require("firebase/app");
+/* const firebase = require("firebase/app");
 require('firebase/database');
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 const mongoose = require("mongoose");
 
-// const db = mongoose.connection;
-// db.once("open", () => {
-//   console.log("Database connected successfully.");
-// });
 const connectDatabase = async () => {
     await mongoose.connect(
-        mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME},
+        `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
         {
             useUnifiedTopology: true,
             useNewUrlParser: true,
@@ -26,8 +17,6 @@ const connectDatabase = async () => {
 module.exports = {
     connectDatabase,
 };
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
     apiKey: "AIzaSyBVml7ciNuC3tDZAdACiYuQ2MLKzPUxSiA",
     authDomain: "adfa-world.firebaseapp.com",
@@ -45,39 +34,14 @@ firebase.initializeApp(firebaseConfig);
 var userID = "userID"
 var firebaseRef = firebase.database()
 
-// data to store
 var data = {
     username: "wadiemendja",
     password: "UserPassword"
 }
-
-// store data in a node with a random unique key
 firebaseRef.ref('users/')
 firebaseRef.push(data)
-/*
-
-root
-  |____ users
-          |____-MCadGHUbDSEjwx_Ma
-                       |_________ username:"wadiemendja"
-                       |_________ password:"UserPassword"
-
-*/
-
-// store data in a node with a given key
 firebaseRef.ref('users/' + userID)
-firebaseRef.set(data)
-/*
-
-root
-  |____ users
-          |____userID
-                  |___ username:"wadiemendja"
-                  |___ password:"UserPassword"
-                       
-*/
-
-// update data
+firebaseRef.set(data);
 var newData = {
     username: "anotherUsername",
     password: "anotherPassword"
@@ -85,6 +49,7 @@ var newData = {
 var firebaseRef = firebase.database().ref('users/' + userID)
 firebaseRef.update(newData)
 
-// remove data
 var firebaseRef = firebase.database().ref('users/' + userID)
 firebaseRef.remove()
+ */
+

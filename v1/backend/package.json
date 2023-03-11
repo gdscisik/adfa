@@ -25,6 +25,7 @@
     "nodemon": "^2.0.19",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
+    "stripe": "^11.14.0",
     "uuid": "^9.0.0",
     "winston": "^3.8.1"
   },
