@@ -6,4 +6,5 @@ module.exports = {
   CampaignRouter: require("./CampaignRouter.js"),
   DonateRequestRouter: require("./DonateRequestRouter.js"),
   UserRouter: require("./UserRouter.js"),
+  CategoryRouter: require("./CategoryRouter.js"),
 };
