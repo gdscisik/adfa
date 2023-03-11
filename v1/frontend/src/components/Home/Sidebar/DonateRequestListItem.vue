@@ -1,10 +1,12 @@
 <template lang="pug">
-li.donate-request__list-item(:style="{'background-color': `${props.requestItem.category_color}4D`}")
-  div.donate-request__list-item__image
-    img(:src="props.requestItem.user_image" :style="{'border': `3px solid ${props.requestItem.category_color}`}")
-  div.donate-request__list-item__content
-    h4 {{ props.requestItem.title }}
-    p {{ props.requestItem.description }}
+RouterLink(:to='`/donate-request/${props.requestItem.id}`') 
+  li.donate-request__list-item(:style="{'background-color': `${props.requestItem.category_color}4D`}")
+    //- RouterLink(:to="{name: DonateRequest}") 
+    div.donate-request__list-item__image
+      img(:src="props.requestItem.user_image" :style="{'border': `3px solid ${props.requestItem.category_color}`}")
+    div.donate-request__list-item__content
+      h4 {{ props.requestItem.title }}
+      p {{ props.requestItem.description }}
 </template>
 <style lang="scss">
 .donate-request__list-item {
