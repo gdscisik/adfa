@@ -7,6 +7,7 @@ const destinations = ref([
   { title: "Media Center", id: 3 },
   { title: "Plans & Reports", id: 4 },
   { title: "Donate", id: 5 },
+  { title: "Forum", id: 6 },
 ]);
 </script>
 

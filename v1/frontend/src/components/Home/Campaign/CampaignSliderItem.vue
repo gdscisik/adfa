@@ -8,8 +8,8 @@ div.campaign-slider-list-item
   DonateButtonComponent.button--donate(:campaignItem = "item")
 </template>
 <script setup>
-import DonateProgressBar from "../DonateProgressBar.vue";
-import DonateButtonComponent from "../DonateButtonComponent.vue";
+import DonateProgressBar from "@/components/Shared/DonateProgressBar.vue";
+import DonateButtonComponent from "@/components/Shared/DonateButtonComponent.vue";
 </script>
 <style lang="scss">
 .campaign-slider-list-item {

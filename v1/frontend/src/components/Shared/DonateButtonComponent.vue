@@ -7,10 +7,11 @@ button.button.button--donate
 button.button--donate {
   background-color: var(--color-primary-green);
   color: var(--color-white);
-  width: 85%;
+  // width: 85%;
   margin-inline: auto;
   padding: 1.2rem 2.4rem;
   margin-top: 2.4rem;
+  display: inline-block;
   & > a {
     justify-content: center;
   }

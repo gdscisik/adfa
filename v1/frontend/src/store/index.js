@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
-import createPersistedState from "vuex-persistedstate";
-import SecureLS from "secure-ls";
+// import createPersistedState from "vuex-persistedstate";
+// import SecureLS from "secure-ls";
 import { appAxios } from "@/utils/appAxios";
 
-let ls = new SecureLS({ isCompression: false });
+// let ls = new SecureLS({ isCompression: false });
 
 export default createStore({
   state: {
