@@ -14,8 +14,10 @@ const {
   getUserProjects,
   resetPassword,
   updateUserData,
-  changePassword,
+  changePassword,                                                                                                                                                                                                                               
   updateProfileImage,
+  signInWithPopup,
+  signInWithGoogle,
 } = require("../controllers/UsersController.js");
 
 router.get("/", getAllUsers);
@@ -35,7 +37,7 @@ router
 router.route("/projects").get(authenticateToken, getUserProjects);
 
 router.route("/login").post(validate(validationSchemas.loginValidation), login);
-
+router.route("/login/google").post(signInWithGoogle);
 router
   .route("/reset-password")
   .post(validate(validationSchemas.resetPasswordValidation), resetPassword);

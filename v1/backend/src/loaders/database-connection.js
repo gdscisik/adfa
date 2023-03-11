@@ -1,11 +1,10 @@
 const { initializeApp } = require('firebase/app');
 const { getFirestore } = require("firebase/firestore");
 // const { getDatabase, ref, set } = require("firebase/firestore");
+const {auth} = require('firebase/auth');
 const { connect } = require("firefose");
 const firebase = require("firebase/app");
-
 var admin = require("firebase-admin");
-
 var serviceAccount = require("../../serviceaccountkey.json");
 
 
@@ -32,6 +31,7 @@ const connectDatabase = async () => {
 		databaseURL: "https://adfa-world-default-rtdb.firebaseio.com/"
 	});
 }
+
 module.exports = {
 	connectDatabase,
 };
