@@ -8,10 +8,16 @@ import LoginPage from "../views/LoginPage.vue";
 import RegisterPage from "../views/RegisterPage.vue";
 import AccountPage from "../views/AccountPage.vue";
 import DonatePage from "../views/DonatePage.vue";
+import ForumPage from "../views/ForumPage.vue";
 //import store from "../store";
 const routes = [
   {
     path: "/",
+    name: "Main",
+    component: HomePage,
+  },
+  {
+    path: "/home",
     name: "Home",
     component: HomePage,
   },
@@ -41,15 +47,15 @@ const routes = [
     component: CategoriesPage,
   },
   {
-    path: "/forum",
-    name: "Forum",
-    component: ForumPage,
-  },
-  {
     path: "/reports",
     name: "Reports",
     component: ReportsPage,
   }, */
+  {
+    path: "/forum",
+    name: "Forum",
+    component: ForumPage,
+  },
   {
     path: "/donate",
     name: "Donate",

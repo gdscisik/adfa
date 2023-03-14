@@ -1,6 +1,6 @@
 <template lang="pug">
 div.campaign-slider
-  CampaignSliderList
+  CampaignSliderList(:sliderCampaignData="sliderCampaignData")
 </template>
 <style lang="scss">
 .campaign-slider {
@@ -18,6 +18,7 @@ import CampaignSliderList from "./CampaignSliderList.vue";
 const sliderCampaignData = ref([
   {
     categoryId: 1,
+    campaignId: 1,
     campaignTitle: "Education",
     campaignDescription:
       "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
@@ -26,6 +27,7 @@ const sliderCampaignData = ref([
   },
   {
     categoryId: 2,
+    campaignId: 2,
     campaignTitle: "Food",
     campaignDescription:
       "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
@@ -34,6 +36,7 @@ const sliderCampaignData = ref([
   },
   {
     categoryId: 3,
+    campaignId: 3,
     campaignTitle: "Personal Needs",
     campaignDescription:
       "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
@@ -42,6 +45,7 @@ const sliderCampaignData = ref([
   },
   {
     categoryId: 4,
+    campaignId: 4,
     campaignTitle: "Natural Disasters",
     campaignDescription:
       "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
@@ -50,26 +54,11 @@ const sliderCampaignData = ref([
   },
   {
     categoryId: 5,
+    campaignId: 5,
     campaignTitle: "Scholarship",
     campaignDescription:
       "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
     image_source: "../../../src/assets/images/categories/scholarships.png",
-    progress: 75,
-  },
-  {
-    categoryId: 6,
-    campaignTitle: "Institutions",
-    campaignDescription:
-      "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
-    image_source: "../../../src/assets/images/categories/institutions.png",
-    progress: 75,
-  },
-  {
-    categoryId: 7,
-    campaignTitle: "Clothes",
-    campaignDescription:
-      "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
-    image_source: "../../../src/assets/images/categories/clothes.png",
     progress: 75,
   },
 ]);

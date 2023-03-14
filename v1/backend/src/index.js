@@ -13,6 +13,9 @@ loaders();
 // const PORT = process.env.APP_PORT || 3232;
 const PORT = 3232 || 5173;
 const app = express();
+
+// const TEMP_DOMAIN = "http://localhost:5173";
+// const stripe = require('stripe')('sk_test_51MeWRlHUYABYDzrmcrBrgT0XmuhYwfJafZstytkoaWov6ZFreRDGZ3pypN7Hi4zSqNRjNHG4Fi1a86CPV4IXHN44000brTb2ow');
 app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "./", "uploads")));
 app.use(express.json());
@@ -33,4 +36,10 @@ app.get("/", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
+});
+
+var firebaseRef = firebase.database().ref('emails');
+document.querySelector('#button button--help-anyone').addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+    firebaseRef.push("dyyenice@gmail.com");
 });
