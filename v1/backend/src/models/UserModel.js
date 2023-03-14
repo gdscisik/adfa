@@ -60,8 +60,22 @@ const UserSchema = new Schema({
 
 const UserModel = new Model("User", UserSchema);
 module.exports = UserModel;
-
-
+/*
+ UserModel.create({
+  userId: 4,
+  imageSource: "https://images.unsplash.com/photo-1542459025-05b107028098?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1077&q=80",
+  email: "user4@gmail.com", 
+  password: "123456",
+  name: "user4",
+  surname: "4user",
+  fullAddress:"NY",
+  tckn_ssn:"15434698245",
+  nickname:"user444",
+  birthdate: ,
+  age:"23",
+  gender: "male",
+  country:"USA"
+});
 /*
 const mongoose = require("mongoose");
 const UserLogger = require("../scripts/logger/UserLogger.js");

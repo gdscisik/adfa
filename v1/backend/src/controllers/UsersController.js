@@ -1,13 +1,11 @@
 const auth = require('firebase/auth');
-const { signInWithPopup, GoogleAuthProvider } = require("firebase/auth");
-const provider = new GoogleAuthProvider();
 const UsersService = require("../services/UsersService.js");
 const CampaignsService = require("../services/CampaignService.js");
+const { Query } = require("firefose");
 const uuid = require("uuid");
 const eventEmitter = require("../scripts/events/EventEmitter.js");
 const { passwordToHash } = require("../scripts/utils/HashPassword.js");
 const path = require("path");
-
 
 const {
   generateAccessToken,
@@ -15,13 +13,18 @@ const {
 } = require("../scripts/utils/Tokens.js");
 
 const getAllUsers = async (req, res) => {
-  const users = await UsersService.findAll();
-  // res.render("users", { users: users });
-  res.send({ users: users });
+  const query = new Query();
+  const users = await UsersService.findAll(query);
+  res.render("index", { users: users });
+  // res.render({ users: users });
+  console.log('query :>> ', query);
 };
 const findUser = async (req, res) => {
-  const user = await UsersService.findById(req.params.id);
-  res.render("users", { user: user });
+  const query1 = new Query().where("email", "==", `${req.body.email}`);
+  // const query2 = query1.where("password", "==", req.body.password);
+  const user = await UsersService.findAll(query1);
+  // res.render("users", { user: user });
+  res.render("login", { users: user });
 };
 const createUser = async (req, res) => {
   req.body.password = passwordToHash(req.body.password);
@@ -33,26 +36,11 @@ const removeUser = async (req, res) => {
   res.render("users");
 };
 
-const signInWithGoogle = async () => {
-
-  auth.signInWithPopup(auth, provider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-  })
-  .catch(error => {
-    console.error(error);
-  })
-}
-
-
-
 const login = async (req, res) => {
-  req.body.password = passwordToHash(req.body.password);
-  let loggedInUser = await UsersService.login(req.body);
-  // console.log("loggedInUser Before :>> ", loggedInUser);
+  // req.body.password = passwordToHash(req.body.password);
+  const query = new Query().where("email", "==", req.body.email).where("password", "==", req.body.password);
+  let loggedInUser = await UsersService.findAll(query);
+  console.log("loggedInUser Before :>> ", loggedInUser);
   if (!loggedInUser) {
     return "Cannot login with provided data!";
   } else {
@@ -65,9 +53,9 @@ const login = async (req, res) => {
     };
     delete loggedInUser.password;
   }
-  // console.log("loggedInUser After :>> ", loggedInUser);
-  res.send(loggedInUser);
-  // res.render("login", { user: loggedInUser });
+  console.log("loggedInUser After :>> ", loggedInUser);
+  // res.send(loggedInUser);
+  res.render("login", { user: loggedInUser });
   // res.render("login", { user: JSON.stringify(loggedInUser) });
 };
 const getUserProjects = async (req, res) => {
@@ -136,6 +124,7 @@ const updateProfileImage = async (req, res) => {
   // 3 - DB Save Process
   // 4 - Responses
 };
+
 module.exports = {
   getAllUsers,
   findUser,
@@ -147,8 +136,6 @@ module.exports = {
   updateUserData,
   changePassword,
   updateProfileImage,
-  signInWithGoogle,
-  signInWithPopup,
 };
 
 

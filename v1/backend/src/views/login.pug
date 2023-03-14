@@ -2,8 +2,8 @@ extends layout
 block content
   div.container
     h3 Login
-    //form(method="post", action="/login")
-    //  input(name="email") 
-    //  input(name="username")
-    //  button(type="submit") submit
-    pre #{data}
+    form(method="post", action="/users")
+      input(name="email") 
+      input(name="password")
+      button(type="submit") submit
+    pre #{users}
