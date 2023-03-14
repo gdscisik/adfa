@@ -7,12 +7,13 @@ const uuid = require("uuid");
 const eventEmitter = require("../scripts/events/EventEmitter.js");
 const { passwordToHash } = require("../scripts/utils/HashPassword.js");
 const path = require("path");
-
+// provider.addScope("https://www.googleapis.com/auth/users.readonly");
 
 const {
   generateAccessToken,
   generateRefreshToken,
 } = require("../scripts/utils/Tokens.js");
+const { Query } = require('firefose');
 
 const getAllUsers = async (req, res) => {
   const users = await UsersService.findAll();
@@ -33,42 +34,65 @@ const removeUser = async (req, res) => {
   res.render("users");
 };
 
-const signInWithGoogle = async () => {
-
-  auth.signInWithPopup(auth, provider)
+const signInWithGoogle = async (req, res) => {
+  await auth.signInWithPopup(auth, provider)
   .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
-  })
-  .catch(error => {
-    console.error(error);
-  })
+    // ...
+    console.log('user :>> ', user);
+    console.log('token :>> ', token);
+    console.log('credential :>> ', credential);
+    res.send("kasjdiasjdlkajsdkjsakdlksj");
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
 }
 
 
-
 const login = async (req, res) => {
-  req.body.password = passwordToHash(req.body.password);
-  let loggedInUser = await UsersService.login(req.body);
-  // console.log("loggedInUser Before :>> ", loggedInUser);
-  if (!loggedInUser) {
-    return "Cannot login with provided data!";
-  } else {
-    loggedInUser = {
-      ...loggedInUser.toObject(),
-      tokens: {
-        access_token: generateAccessToken(loggedInUser),
-        refresh_token: generateRefreshToken(loggedInUser),
-      },
-    };
-    delete loggedInUser.password;
-  }
-  // console.log("loggedInUser After :>> ", loggedInUser);
-  res.send(loggedInUser);
-  // res.render("login", { user: loggedInUser });
+  //req.body.password = passwordToHash(req.body.password);
+  // let loggedInUser = await UsersService.login(req.body);
+  // // console.log("loggedInUser Before :>> ", loggedInUser);
+  // if (!loggedInUser) {
+  //   return "Cannot login with provided data!";
+  // } else {
+  //   loggedInUser = {
+  //     ...loggedInUser.toObject(),
+  //     tokens: {
+  //       access_token: generateAccessToken(loggedInUser),
+  //       refresh_token: generateRefreshToken(loggedInUser),
+  //     },
+  //   };
+  //   delete loggedInUser.password;
+  // }
+  // // console.log("loggedInUser After :>> ", loggedInUser);
+  // //res.send(loggedInUser);
+  // // res.render("login", { user: loggedInUser });
   // res.render("login", { user: JSON.stringify(loggedInUser) });
+  const query = new Query().where("email", "==", `${req.body.email}`).where("password", "==", `${req.body.password}`)
+  const userData = {
+    email: req.body.email,
+    password: req.body.password
+  };
+  const user = await UsersService.findById(query);
+  console.log('user :>> ', user);
+  if(user != null) {
+    res.send(userData);
+    res.redirect("/");
+  } else {
+    res.send("Incorrect email or password!");
+  }
 };
 const getUserProjects = async (req, res) => {
   // const userId = req.params.user?._id; sending id over params
@@ -150,5 +174,3 @@ module.exports = {
   signInWithGoogle,
   signInWithPopup,
 };
-
-

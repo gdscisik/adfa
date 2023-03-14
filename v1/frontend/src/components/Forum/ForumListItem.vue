@@ -16,7 +16,7 @@ RouterLink(:to='`/donate-request/${props.item.id}`')
         //- DonateButtonComponent
 </template>
 <script setup>
-import DonateButtonComponent from "../Shared/DonateButtonComponent.vue";
+// import DonateButtonComponent from "@/components/Shared/Buttons/DonateButtonComponent.vue";
 const props = defineProps({
   item: {
     type: Object,

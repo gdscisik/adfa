@@ -71,6 +71,9 @@ button {
   &--4 {
     grid-template-columns: repeat(4, 1fr);
   }
+  &--1-1 {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 a {

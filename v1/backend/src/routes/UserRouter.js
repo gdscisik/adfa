@@ -36,7 +36,8 @@ router
 
 router.route("/projects").get(authenticateToken, getUserProjects);
 
-router.route("/login").post(validate(validationSchemas.loginValidation), login);
+// router.route("/login").post(validate(validationSchemas.loginValidation), login);
+router.route("/login").post(login);
 router.route("/login/google").post(signInWithGoogle);
 router
   .route("/reset-password")

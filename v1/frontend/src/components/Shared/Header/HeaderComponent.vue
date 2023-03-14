@@ -1,6 +1,6 @@
 <script setup>
 import NavigationList from "./NavigationList.vue";
-import HelpAnyoneButtonComponent from "../HelpAnyoneButtonComponent.vue";
+import HelpAnyoneButtonComponent from "../Buttons/HelpAnyoneButtonComponent.vue";
 </script>
 <template lang="pug">
 header

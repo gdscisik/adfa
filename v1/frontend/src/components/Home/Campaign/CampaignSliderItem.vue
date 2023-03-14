@@ -9,7 +9,7 @@ div.campaign-slider-list-item
 </template>
 <script setup>
 import DonateProgressBar from "@/components/Shared/DonateProgressBar.vue";
-import DonateButtonComponent from "@/components/Shared/DonateButtonComponent.vue";
+import DonateButtonComponent from "@/components/Shared/Buttons/DonateButtonComponent.vue";
 const props = defineProps({
   campaignItem: {
     type: Object,

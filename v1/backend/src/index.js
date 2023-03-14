@@ -6,8 +6,6 @@ const path = require("path");
 const config = require("./config");
 const loaders = require("./loaders");
 // const events = require("./scripts/events");
-const auth = require('firebase/auth');
-const { signInWithPopup, GoogleAuthProvider } = require("firebase/auth");
 // const provider = new GoogleAuthProvider();
 const { CampaignRouter, DonateRequestRouter, UserRouter, CategoryRouter } = require("./routes");
 config();
@@ -45,8 +43,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-var firebaseRef = firebase.database().ref('emails');
-document.querySelector('#button button--help-anyone').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    firebaseRef.push("dyyenice@gmail.com");
-});
