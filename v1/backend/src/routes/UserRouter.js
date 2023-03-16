@@ -12,6 +12,7 @@ const {
   createUser,
   removeUser,
   login,
+  register,
   getUserProjects,
   resetPassword,
   updateUserData,
@@ -30,7 +31,7 @@ router.post("/", async (req, res) => {
   res.render("index", {users: user});
 ;});
 router.get("/login", findUser);
-
+router.post("/users/register").post(register);
 // router
 //   .route("/")
 //   .post(validate(validationSchemas.createValidation), createUser);

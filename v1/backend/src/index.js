@@ -38,8 +38,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-var firebaseRef = firebase.database().ref('emails');
+/*var firebaseRef = firebase.database().ref('emails');
 document.querySelector('#button button--help-anyone').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     firebaseRef.push("dyyenice@gmail.com");
-});
+});*/
