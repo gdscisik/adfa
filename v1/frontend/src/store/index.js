@@ -20,6 +20,12 @@ export default createStore({
     _logoutUser(state) {
       state.user = null;
     },
+    _setSaltKey(state, key) {
+      state.saltKey = key;
+    },
+    _setCampaigns(state, campaigns) {
+      state.campaigns = campaigns;
+    },
     /* _setBookmarkList(state, bookmarkList) {
       state.bookmarkList = bookmarkList;
     },

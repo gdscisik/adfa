@@ -2,8 +2,8 @@
 div.campaign-slider-list-item
   img(src="@/assets/images/slider/slider-8.jpg")
   RouterLink(:to='`/campaigns/${props.campaignItem.campaignId}`') 
-    h3 title   
-  p lorem ipsum dolor sit amet lorem ipsum dolor sit amet adsas adasd asdasd asdasdas 
+    h3 {{ props.campaignItem.title }}   
+  p {{ props.campaignItem.description }} 
   DonateProgressBar
   DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.campaignId")
 </template>

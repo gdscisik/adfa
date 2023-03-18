@@ -1,6 +1,6 @@
 <template lang="pug">
 div.campaign-slider
-  CampaignSliderList(:sliderCampaignData="sliderCampaignData")
+  CampaignSliderList
 </template>
 <style lang="scss">
 .campaign-slider {
@@ -10,10 +10,12 @@ div.campaign-slider
   margin: 5.4rem auto;
 }
 </style>
-
 <script setup>
-import { ref } from "vue";
 import CampaignSliderList from "./CampaignSliderList.vue";
+</script>
+<!-- <script setup>
+  import { ref } from "vue";
+  import CampaignSliderList from "./CampaignSliderList.vue";
 
 const sliderCampaignData = ref([
   {
@@ -62,4 +64,4 @@ const sliderCampaignData = ref([
     progress: 75,
   },
 ]);
-</script>
+</script> -->
