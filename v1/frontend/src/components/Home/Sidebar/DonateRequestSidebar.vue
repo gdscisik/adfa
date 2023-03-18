@@ -7,7 +7,7 @@ aside.donate-request
 <script setup>
 import { ref } from "vue";
 import DonateRequestList from "./DonateRequestList.vue";
-import SeeMoreDonateRequestButton from "@/components/Shared/SeeMoreDonateRequestButton.vue";
+import SeeMoreDonateRequestButton from "@/components/Shared/Buttons/SeeMoreDonateRequestButton.vue";
 </script>
 <style lang="scss">
 .donate-request {

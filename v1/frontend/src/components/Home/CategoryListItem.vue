@@ -8,7 +8,7 @@ div.card
       CategoryDonateButtonComponent(:buttonColor="props.categoryItem.category_color")
 </template>
 <script setup>
-import CategoryDonateButtonComponent from "../Shared/CategoryDonateButtonComponent.vue";
+import CategoryDonateButtonComponent from "@/components/Shared/Buttons/CategoryDonateButtonComponent.vue";
 const props = defineProps({
   categoryItem: {
     type: Object,
