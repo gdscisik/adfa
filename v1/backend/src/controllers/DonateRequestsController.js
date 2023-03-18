@@ -1,37 +1,19 @@
-const ProjectsService = require("../services/CampaignService.js");
+const DonateRequestService = require("../services/CampaignService.js");
 const { Query } = require("firefose");
 const getAll = async (req, res) => {
-  const projects = await ProjectsService.findAll();
-  // res.render("projects", { projects: projects });
-  res.send(projects);
+  const query = new Query();
+  const donateRequests = await DonateRequestService.findAll(query);
+  res.send(donateRequests);
 };
 
 const getById = async (req, res) => {
-  const project = await ProjectsService.findById(req.params.id);
-  res.render("projects", { project: project });
+  const query = new Query().where("donateRequestId", "==", `${req.params.id}`);
+  const donateRequest = await DonateRequestService.findById(query);
+  res.render(donateRequest);
 };
-const create = async (req, res) => {
-  // const projectData = {
-  //   name: req.body.name,
-  //   user_id: req.user?._id,
-  // };
-  // const addProject = await ProjectsService.add(projectData);
-  req.body.user_id = req.user?._id;
-  // req.body.user_id = req.user;
-  const addProject = await ProjectsService.add(req.body);
-  res.send("Projects Create");
-};
-const remove = async (req, res) => {
-  const itemId = await ProjectsService.delete(req.params.id);
-  res.render("projects");
-};
-const update = async (req, res) => {
-  if (!req.params?.id) {
-    return "ID is missing.";
-  }
-  await ProjectsService.update(req.params.id, req.body);
-  res.send("Project Updated");
-};
+const create = async (req, res) => {};
+const remove = async (req, res) => {};
+const update = async (req, res) => {};
 module.exports = {
   getAll,
   getById,
@@ -39,3 +21,4 @@ module.exports = {
   remove,
   update,
 };
+

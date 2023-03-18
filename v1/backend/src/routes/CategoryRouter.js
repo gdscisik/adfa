@@ -6,14 +6,15 @@ const authenticateToken = require("../middlewares/AuthenticateToken.js");
 const express = require("express");
 const router = express.Router();
 const {
-  getAllCategories,
-  findCategory,
-  createCategory
+  getAll,
+  find,
+  create,
 } = require("../controllers/CategoryController.js");
 
-router.get("/", getAllCategories);
+router.get("/", getAll);
 
-router.get("/:id", findCategory);
-router.post("/", createCategory);
+router.get("/:id", find);
+router.post("/", create);
 
 module.exports = router;
+

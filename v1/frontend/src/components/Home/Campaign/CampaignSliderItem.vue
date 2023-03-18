@@ -1,11 +1,11 @@
 <template lang="pug">
 div.campaign-slider-list-item
   img(src="@/assets/images/slider/slider-8.jpg")
-  RouterLink(:to='`/campaigns/${props.campaignItem.campaignId}`') 
+  RouterLink(:to='`/campaigns/${props.campaignItem.id}`') 
     h3 {{ props.campaignItem.title }}   
   p {{ props.campaignItem.description }} 
   DonateProgressBar
-  DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.campaignId")
+  DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.id")
 </template>
 <script setup>
 import DonateProgressBar from "@/components/Shared/DonateProgressBar.vue";
