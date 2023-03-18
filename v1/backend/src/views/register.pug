@@ -1,0 +1,20 @@
+extends layout
+block content
+  div.container
+    h3 Register
+    form(method="post", action="/")
+      input(name="email") 
+      input(name="password")
+      input(name="age")
+      input(name="birthdate")
+      input(name="country") 
+      input(name="fullAddress")
+      input(name="gender") 
+      input(name="imageSource") 
+      input(name="name")
+      input(name="nickname")
+      input(name="surname")
+      input(name="tckn_ssn")
+      input(name="userId")
+      button(type="submit") submit
+    pre #{users}

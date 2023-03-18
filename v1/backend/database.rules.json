@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "campaigns": {
+      "$campaignId": {
+        ".write": "$campaignId === auth.uid",
+        ".read": "$campaignId === auth.uid"
+      }
+    }
+  }
+}

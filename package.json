@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@googleapis/docs": "^2.0.0",
     "firebase": "^9.17.1",
     "vite": "^4.1.4"
   }
