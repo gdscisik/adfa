@@ -36,6 +36,47 @@ const removeUser = async (req, res) => {
   res.render("users");
 };
 
+const register = async (req, res) => {
+  // req.body.password = passwordToHash(req.body.password);
+  const query = new Query().where("email", "==", req.body.email);
+  const existingUser = await UsersService.findAll(query);
+
+  if (existingUser) {
+    return "User already exists!";
+  } else {
+    const newUser = {
+      email: req.body.email,
+      password: req.body.password,
+      age : req.body.age,
+      birthdate :req.body.birthdate,
+      country :req.body.country,
+      fullAddress :req.body.fullAddress,
+      gender:req.body.gender,
+      imageSource:req.body.imageSource,
+      name:req.body.name,
+      nickname:req.body.nickname,
+      surname:req.body.surname,
+      tckn_ssn:req.body.tckn_ssn,
+      userId:req.body.userId,
+    };
+    const savedUser = await UsersService.create(newUser);
+
+    // Generate access and refresh tokens for the new user
+    const userWithTokens = {
+      ...savedUser.toObject(),
+      tokens: {
+        access_token: generateAccessToken(savedUser),
+        refresh_token: generateRefreshToken(savedUser),
+      },
+    };
+
+    // Remove the password field from the user object before sending it to the client
+    delete userWithTokens.password;
+
+    // Render the registration success page with the new user object
+    res.render("registration-success", { user: userWithTokens });
+  }
+};
 const login = async (req, res) => {
   // req.body.password = passwordToHash(req.body.password);
   const query = new Query().where("email", "==", req.body.email).where("password", "==", req.body.password);
@@ -131,6 +172,7 @@ module.exports = {
   createUser,
   removeUser,
   login,
+  register,
   getUserProjects,
   resetPassword,
   updateUserData,
