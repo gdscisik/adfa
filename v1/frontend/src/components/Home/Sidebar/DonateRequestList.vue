@@ -5,5 +5,5 @@ ul.donate-request__list
 <script setup>
 import { inject } from "vue";
 import DonateRequestListItem from "./DonateRequestListItem.vue";
-const requestList = inject("RequestList");
+const appAxios = inject("AppAxios");
 </script>

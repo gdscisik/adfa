@@ -1,16 +1,25 @@
 <template lang="pug">
 div.campaign-slider-list
-  CampaignSliderItem(v-for="item in props.sliderCampaignData" :key="item.id" :campaignItem="item")
+  CampaignSliderItem(v-for="item in _getFirstFiveCampaigns()" :key="item.id" :campaignItem="item")
 </template>
+0
 <script setup>
 import CampaignSliderItem from "./CampaignSliderItem.vue";
-const props = defineProps({
-  sliderCampaignData: {
-    type: Object,
-    required: true,
-    default: {},
-  },
+import { inject, onMounted } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const appAxios = inject("AppAxios");
+
+onMounted(() => {
+  appAxios.get("/campaigns").then((response) => {
+    console.log("response.data :>> ", response.data);
+    store.commit("_setCampaigns", response.data);
+  });
 });
+const _getFirstFiveCampaigns = () => {
+  return store.getters._getCampaigns.slice(0, 5);
+};
 </script>
 <style lang="scss">
 .campaign-slider-list {
