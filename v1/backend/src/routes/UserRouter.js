@@ -7,10 +7,10 @@ const express = require("express");
 const router = express.Router();
 const { Query } = require("firefose");
 const {
-  getAllUsers,
-  findUser,
-  createUser,
-  removeUser,
+  getAll,
+  find,
+  create,
+  remove,
   login,
   register,
   getUserProjects,
@@ -21,7 +21,7 @@ const {
 } = require("../controllers/UsersController.js");
 
 const UsersService = require("../services/UsersService.js");
-router.get("/", getAllUsers);
+router.get("/", getAll);
 // router.get("/users", getAllUsers);
 // router.post("/users", findUser);
 router.post("/", async (req, res) => {
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
   console.log('user :>> ', user);
   res.render("index", {users: user});
 ;});
-router.get("/login", findUser);
+router.get("/login", find);
 router.post("/users/register").post(register);
 // router
 //   .route("/")
@@ -68,8 +68,8 @@ router.route("/update-profile-image").post(
   updateProfileImage
 );
 
-router.route("/:id").delete(authenticateToken, removeUser);
+router.route("/:id").delete(authenticateToken, remove);
 
-router.get("/:id", findUser);
+router.get("/:id", find);
 
 module.exports = router;
