@@ -37,6 +37,13 @@ app.get("/", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
+/*app.post('/upload', function(req, res, next) {
+  var is = fs.createReadStream(req.files.upload.path),
+      fileExt = '', // I want to get the extension of the image here
+      os = fs.createWriteStream('public/images/users/' + req.session.adress + '.' + fileExt);
+}); */
+
+
 
 /*var firebaseRef = firebase.database().ref('emails');
 document.querySelector('#button button--help-anyone').addEventListener('click', () => {
