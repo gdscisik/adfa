@@ -13,7 +13,7 @@ const appAxios = inject("AppAxios");
 
 onMounted(() => {
   appAxios.get("/campaigns").then((response) => {
-    console.log("response.data :>> ", response.data);
+    // console.log("response.data :>> ", response.data);
     store.commit("_setCampaigns", response.data);
   });
 });

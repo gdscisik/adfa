@@ -15,13 +15,20 @@ module.exports = class Service {
   async add(item) {
     return this.model.create(item);
   }
-  async delete(itemId) {
+  async delete(query) {
+    return this.model.deleteOne(query);
+  }
+  /* async delete(itemId) {
     return this.model.deleteOne({ _id: itemId });
+  } */
+  /* async update(query, data) {
+    return this.model.findByIdAndUpdate(query, data, { new: true });
+  } */
+  async update(query, data) {
+    return this.model.update(query, data);
   }
-  async update(itemId, data) {
-    return this.model.findByIdAndUpdate(itemId, data, { new: true });
-  }
-  async update(item, data) {
+  /* async update(item, data) {
     return this.model.findOneAndUpdate(item, data, { new: true });
-  }
+  } */
 };
+

@@ -1,4 +1,4 @@
-const auth = require('firebase/auth');
+const auth = require("firebase/auth");
 const UsersService = require("../services/UsersService.js");
 const CampaignsService = require("../services/CampaignService.js");
 const { Query } = require("firefose");
@@ -7,33 +7,27 @@ const eventEmitter = require("../scripts/events/EventEmitter.js");
 const { passwordToHash } = require("../scripts/utils/HashPassword.js");
 const path = require("path");
 
-const {
-  generateAccessToken,
-  generateRefreshToken,
-} = require("../scripts/utils/Tokens.js");
-
-const getAllUsers = async (req, res) => {
+const getAll = async (req, res) => {
   const query = new Query();
   const users = await UsersService.findAll(query);
-  res.render("index", { users: users });
-  // res.render({ users: users });
-  console.log('query :>> ', query);
+  res.send(users);
 };
-const findUser = async (req, res) => {
+const find = async (req, res) => {
   const query1 = new Query().where("email", "==", `${req.body.email}`);
   // const query2 = query1.where("password", "==", req.body.password);
-  const user = await UsersService.findAll(query1);
+  const user = await UsersService.findById(query1);
   // res.render("users", { user: user });
-  res.render("login", { users: user });
+  res.send(user);
 };
-const createUser = async (req, res) => {
+const create = async (req, res) => {
   req.body.password = passwordToHash(req.body.password);
   const createdUser = await UsersService.add(req.body);
-  res.render("users", { user: createdUser });
+  //res.render("users", { user: createdUser });
 };
-const removeUser = async (req, res) => {
-  const itemId = await UsersService.delete(req.params.id);
-  res.render("users");
+const remove = async (req, res) => {
+  const query = new Query().where("userId", "==", `${req.params.id}`);
+  const user = await UsersService.delete(query);
+  res.send("users");
 };
 
 const register = async (req, res) => {
@@ -47,17 +41,17 @@ const register = async (req, res) => {
     const newUser = {
       email: req.body.email,
       password: req.body.password,
-      age : req.body.age,
-      birthdate :req.body.birthdate,
-      country :req.body.country,
-      fullAddress :req.body.fullAddress,
-      gender:req.body.gender,
-      imageSource:req.body.imageSource,
-      name:req.body.name,
-      nickname:req.body.nickname,
-      surname:req.body.surname,
-      tckn_ssn:req.body.tckn_ssn,
-      userId:req.body.userId,
+      age: req.body.age,
+      birthdate: req.body.birthdate,
+      country: req.body.country,
+      fullAddress: req.body.fullAddress,
+      gender: req.body.gender,
+      imageSource: req.body.imageSource,
+      name: req.body.name,
+      nickname: req.body.nickname,
+      surname: req.body.surname,
+      tckn_ssn: req.body.tckn_ssn,
+      userId: req.body.userId,
     };
     const savedUser = await UsersService.create(newUser);
 
@@ -79,7 +73,9 @@ const register = async (req, res) => {
 };
 const login = async (req, res) => {
   // req.body.password = passwordToHash(req.body.password);
-  const query = new Query().where("email", "==", req.body.email).where("password", "==", req.body.password);
+  const query = new Query()
+    .where("email", "==", req.body.email)
+    .where("password", "==", req.body.password);
   let loggedInUser = await UsersService.findAll(query);
   console.log("loggedInUser Before :>> ", loggedInUser);
   if (!loggedInUser) {
@@ -118,7 +114,7 @@ const resetPassword = async (req, res) => {
   console.log("new_password :>> ", new_password);
   const updatedUser = await UsersService.update(
     { email: req.body.email },
-    { password: passwordToHash(new_password) }
+    { password: passwordToHash(new_password) },
   );
   eventEmitter.emit("send_email", {
     to: updatedUser.email,
@@ -135,7 +131,7 @@ const changePassword = async (req, res) => {
   req.body.password = passwordToHash(req.body.password);
   const updatedUser = await UsersService.update(
     { _id: req.user?._id },
-    req.body
+    req.body,
   );
   res.send(updatedUser);
 };
@@ -167,10 +163,10 @@ const updateProfileImage = async (req, res) => {
 };
 
 module.exports = {
-  getAllUsers,
-  findUser,
-  createUser,
-  removeUser,
+  getAll,
+  find,
+  create,
+  remove,
   login,
   register,
   getUserProjects,
@@ -179,5 +175,3 @@ module.exports = {
   changePassword,
   updateProfileImage,
 };
-
-

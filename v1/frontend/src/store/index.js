@@ -26,6 +26,9 @@ export default createStore({
     _setCampaigns(state, campaigns) {
       state.campaigns = campaigns;
     },
+    _setDonateRequests(state, requests) {
+      state.donateRequests = requests;
+    },
     /* _setBookmarkList(state, bookmarkList) {
       state.bookmarkList = bookmarkList;
     },
