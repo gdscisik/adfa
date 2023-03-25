@@ -10,7 +10,6 @@ const {
   getById,
   create,
   remove,
-  update,
 } = require("../controllers/CampaignsController.js");
 
 router.route("/").get(getAll);
@@ -25,8 +24,6 @@ router.get("/:id", getById);
 // router.route("/:id").delete(authenticateToken, remove);
 
 module.exports = router;
-
-
 
 /*// Validate Middleware
 const validate = require("../middlewares/Validate.js");
@@ -65,3 +62,4 @@ router.route("/:id").delete(authenticateToken, remove);
 module.exports = router;
 
 */
+

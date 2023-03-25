@@ -15,7 +15,7 @@ const donateRequestList = ref([
     description: "To be able to finish my education, I need ...",
     description_long:
       "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
+    user_image: "@/assets/images/user_image.jpg",
     categoryList: [1, 3, 6],
     category_color: "#1D81B9",
   },

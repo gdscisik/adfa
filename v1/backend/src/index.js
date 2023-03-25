@@ -3,10 +3,16 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const helmet = require("helmet");
 const path = require("path");
+const cors = require("cors");
 const config = require("./config");
 const loaders = require("./loaders");
 // const events = require("./scripts/events");
-const { CampaignRouter, DonateRequestRouter, UserRouter, CategoryRouter } = require("./routes");
+const {
+  CampaignRouter,
+  DonateRequestRouter,
+  UserRouter,
+  CategoryRouter,
+} = require("./routes");
 config();
 loaders();
 // events();
@@ -21,6 +27,7 @@ app.use("/uploads", express.static(path.join(__dirname, "./", "uploads")));
 app.use(express.json());
 app.use(helmet());
 app.use(fileUpload());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "pug");

@@ -4,7 +4,7 @@ div.container.forum-header
   OpenNewRequestButton
 </template>
 <script setup>
-import OpenNewRequestButton from "@/components/Shared/OpenNewRequestButton.vue";
+import OpenNewRequestButton from "@/components/Shared/Buttons/OpenNewRequestButton.vue";
 </script>
 <style lang="scss">
 .forum-header {

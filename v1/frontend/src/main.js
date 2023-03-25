@@ -7,9 +7,9 @@ import store from "./store";
 //const socket = io("http://localhost:2000");
 
 const app = createApp(App);
-app.config.globalProperties.$appAxios = appAxios;
+// app.config.globalProperties.$axios = appAxios;
 //app.config.globalProperties.$socket = socket;
+app.provide("AppAxios", appAxios);
 app.use(store);
 app.use(router);
 app.mount("#app");
-

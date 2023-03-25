@@ -1,15 +1,15 @@
 <template lang="pug">
 div.campaign-slider-list-item
   img(src="@/assets/images/slider/slider-8.jpg")
-  RouterLink(:to='`/campaigns/${props.campaignItem.campaignId}`') 
-    h3 title   
-  p lorem ipsum dolor sit amet lorem ipsum dolor sit amet adsas adasd asdasd asdasdas 
+  RouterLink(:to='`/campaigns/${props.campaignItem.id}`') 
+    h3 {{ props.campaignItem.title }}   
+  p {{ props.campaignItem.description }} 
   DonateProgressBar
-  DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.campaignId")
+  DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.id")
 </template>
 <script setup>
 import DonateProgressBar from "@/components/Shared/DonateProgressBar.vue";
-import DonateButtonComponent from "@/components/Shared/DonateButtonComponent.vue";
+import DonateButtonComponent from "@/components/Shared/Buttons/DonateButtonComponent.vue";
 const props = defineProps({
   campaignItem: {
     type: Object,

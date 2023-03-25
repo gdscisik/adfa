@@ -9,9 +9,9 @@ export default createStore({
   state: {
     user: null,
     saltKey: "booklike123!456?#",
-    bookmarkList: [],
-    userLikes: [],
-    userBookmarks: [],
+    campaigns: [],
+    donateRequests: [],
+    userDonateRequests: [],
   },
   mutations: {
     _setUser(state, user) {
@@ -20,7 +20,16 @@ export default createStore({
     _logoutUser(state) {
       state.user = null;
     },
-    _setBookmarkList(state, bookmarkList) {
+    _setSaltKey(state, key) {
+      state.saltKey = key;
+    },
+    _setCampaigns(state, campaigns) {
+      state.campaigns = campaigns;
+    },
+    _setDonateRequests(state, requests) {
+      state.donateRequests = requests;
+    },
+    /* _setBookmarkList(state, bookmarkList) {
       state.bookmarkList = bookmarkList;
     },
     _changeBookmarksOfCategory(state, categoryId) {
@@ -42,7 +51,7 @@ export default createStore({
     },
     _setUserBookmarks(state, userBookmarks) {
       state.userBookmarks = userBookmarks;
-    },
+    }, */
   },
   getters: {
     _isAuthenticated(state) {
@@ -59,21 +68,21 @@ export default createStore({
     _getSaltKey(state) {
       return state.saltKey;
     },
-    _getCategoryAndUserData(state) {
-      return state.bookmarkList;
+    _getCampaigns(state) {
+      return state.campaigns;
     },
-    _getUserLikes(state) {
-      return state?.userLikes || [];
+    _getDonateRequests(state) {
+      return state?.donateRequests || [];
+    },
+    _getUserDonateRequests(state) {
+      return state?.userDonateRequests || [];
+    },
+    /* _getUserLikes(state) {
+      return state.user?.likes || [];
     },
     _getUserBookmarks(state) {
-      return state?.userBookmarks || [];
-    },
-    // _getUserLikes(state) {
-    //   return state.user?.likes || [];
-    // },
-    // _getUserBookmarks(state) {
-    //   return state.user?.bookmarks || [];
-    // },
+      return state.user?.bookmarks || [];
+    }, */
   },
   // plugins: [
   //   createPersistedState({

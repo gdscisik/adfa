@@ -1,22 +1,24 @@
 <template lang="pug">
 //- RouterLink(:to="{name: DonateRequest}") 
-RouterLink(:to='`/donate-request/${props.item.id}`') 
+//- pre {{ props.item }}
+RouterLink(:to='`/requests/${props.item.id}`') 
   li.forum__list-item(:style="{'background-color': `${props.item.category_color}4D`}")
     div.forum__list-item-image
-      img(:src="props.item.user_image")
+      img(:src="props.item.imageSource")
     div.forum__list-item-content
       div.forum__list-item-content-header 
         h3.forum__list-item-title {{ props.item.title }}
         //- span.forum__list-item-date {{ props.item.title }}
         span.forum__list-item-date 01/15/2023 - 22:35
-      p.forum__list-item-description {{ props.item.description_long }}
+      p.forum__list-item-description {{ props.item.description }}
       div.forum__List-item-content-footer 
         ul.forum__list-item-categories
           li.forum__list-item-category(v-for="category in props.item.categoryList" :key="category" :style="{'background-color': `${props.item.category_color}4D`}") {{ category }}
         //- DonateButtonComponent
 </template>
 <script setup>
-import DonateButtonComponent from "../Shared/DonateButtonComponent.vue";
+import { inject, onMounted } from "vue";
+// import DonateButtonComponent from "@/components/Shared/Buttons/DonateButtonComponent.vue";
 const props = defineProps({
   item: {
     type: Object,
@@ -24,6 +26,12 @@ const props = defineProps({
     default: {},
   },
 });
+/* const appAxios = inject("AppAxios");
+onMounted(() => {
+  appAxios.get(`/requests/${toString(props.item.id)}`).then((response) => {
+    console.log("response :>> ", response);
+  });
+}); */
 </script>
 <style lang="scss">
 .forum__list-item {
