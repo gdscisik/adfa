@@ -1,5 +1,5 @@
 <template lang="pug">
-RouterLink(:to='`/donate-request/${props.requestItem.id}`') 
+RouterLink(:to='`/requests/${props.requestItem.id}`') 
   li.donate-request__list-item(:style="{'background-color': `${props.requestItem.category_color}4D`}")
     div.donate-request__list-item__image
       img(:src="props.requestItem.user_image" :style="{'border': `3px solid ${props.requestItem.category_color}`}")
