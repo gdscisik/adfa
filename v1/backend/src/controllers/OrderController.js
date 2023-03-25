@@ -1,4 +1,4 @@
-const ProjectsService = require("../services/OrderService.js");
+const OrderService = require("../services/OrderService.js");
 const { Query } = require("firefose");
 
 const getAll = async (req, res) => {
