@@ -5,7 +5,6 @@ aside.donate-request
   SeeMoreDonateRequestButton
 </template>
 <script setup>
-import { ref } from "vue";
 import DonateRequestList from "./DonateRequestList.vue";
 import SeeMoreDonateRequestButton from "@/components/Shared/Buttons/SeeMoreDonateRequestButton.vue";
 </script>

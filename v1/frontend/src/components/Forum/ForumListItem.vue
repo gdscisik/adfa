@@ -1,15 +1,16 @@
 <template lang="pug">
 //- RouterLink(:to="{name: DonateRequest}") 
 //- pre {{ props.item }}
-RouterLink(:to='`/requests/${props.item.id}`') 
-  li.forum__list-item(:style="{'background-color': `${props.item.category_color}4D`}")
+//- RouterLink(:to='`/requests/${props.item.id}`') 
+RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}") 
+  li.forum__list-item(:style="{'background-color': `${props.item.categoryColor}4D`}")
     div.forum__list-item-image
       img(:src="props.item.imageSource")
     div.forum__list-item-content
       div.forum__list-item-content-header 
         h3.forum__list-item-title {{ props.item.title }}
         //- span.forum__list-item-date {{ props.item.title }}
-        span.forum__list-item-date 01/15/2023 - 22:35
+        span.forum__list-item-date {{ props.item.createdDate }}
       p.forum__list-item-description {{ props.item.description }}
       div.forum__List-item-content-footer 
         ul.forum__list-item-categories

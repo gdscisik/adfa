@@ -9,6 +9,10 @@ import RegisterPage from "../views/RegisterPage.vue";
 import AccountPage from "../views/AccountPage.vue";
 import DonatePage from "../views/DonatePage.vue";
 import ForumPage from "../views/ForumPage.vue";
+import RequestDetailPage from "../views/RequestDetailPage.vue";
+import CampaignDetailPage from "../views/CampaignDetailPage.vue";
+import CampaignsPage from "../views/CampaignsPage.vue";
+import CategoriesPage from "../views/CategoriesPage.vue";
 //import store from "../store";
 const routes = [
   {
@@ -36,17 +40,22 @@ const routes = [
     name: "Account",
     component: AccountPage,
   },
-  /* {
+  {
     path: "/campaigns",
     name: "Campaigns",
     component: CampaignsPage,
+  },
+  {
+    path: "/campaigns/:id",
+    name: "CampaignDetail",
+    component: CampaignDetailPage,
   },
   {
     path: "/categories",
     name: "Categories",
     component: CategoriesPage,
   },
-  {
+  /* {
     path: "/reports",
     name: "Reports",
     component: ReportsPage,
@@ -55,6 +64,11 @@ const routes = [
     path: "/forum",
     name: "Forum",
     component: ForumPage,
+  },
+  {
+    path: "/requests/:id",
+    name: "RequestDetail",
+    component: RequestDetailPage,
   },
   {
     path: "/donate",

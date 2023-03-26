@@ -1,6 +1,6 @@
 <template lang="pug">
 div.campaign-slider-list-item
-  img(src="@/assets/images/slider/slider-8.jpg")
+  img(:src="props.campaignItem.imageSource")
   RouterLink(:to='`/campaigns/${props.campaignItem.id}`') 
     h3 {{ props.campaignItem.title }}   
   p {{ props.campaignItem.description }} 
@@ -27,10 +27,13 @@ const props = defineProps({
   gap: 1.4rem;
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 1.5rem 1rem 10rem rgba($color: #000000, $alpha: 0.15);
-  padding: 1.2rem 1.4rem;
+  // box-shadow: 1.5rem 1rem 10rem rgba($color: #000000, $alpha: 0.05);
+  // border: 2px solid var(--color-primary-green);
+  background-color: var(--color-header-background);
+  padding: 1.8rem;
   & img {
     width: 100%;
+    border-radius: 0.5rem;
   }
   & h3 {
     width: 100%;
