@@ -20,7 +20,7 @@ button.button--donate {
 <script setup>
 const props = defineProps({
   campaignItemId: {
-    type: Number,
+    type: String,
     required: true,
   },
 });
