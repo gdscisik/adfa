@@ -5,18 +5,10 @@ div.campaign-slider-list
 0
 <script setup>
 import CampaignSliderItem from "./CampaignSliderItem.vue";
-import { inject, onMounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-const appAxios = inject("AppAxios");
 
-onMounted(() => {
-  appAxios.get("/campaigns").then((response) => {
-    // console.log("response.data :>> ", response.data);
-    store.commit("_setCampaigns", response.data);
-  });
-});
 const _getFirstFiveCampaigns = () => {
   return store.getters._getCampaigns.slice(0, 5);
 };
@@ -31,5 +23,6 @@ const _getFirstFiveCampaigns = () => {
   // white-space: nowrap;
   gap: 2.4rem;
   padding: 1.4rem 2.8rem;
+  background-color: inherit;
 }
 </style>

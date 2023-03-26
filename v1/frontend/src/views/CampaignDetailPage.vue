@@ -1,4 +1,4 @@
 <template lang="pug">
-h1 Campaigns Page
+h1 Campaign Detail Page
 </template>
 <script setup></script>

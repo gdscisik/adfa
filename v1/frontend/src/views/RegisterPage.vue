@@ -5,17 +5,17 @@ div.container.container--full.grid.grid--1-1.register-container
   div.register__content
     form.register-form.grid.grid--1-1
       div.input__group
-        label(for="firstName") First Name
-        input(type="text" id="firstName" placeholder="First Name ")
+        label(for="firstNameField") First Name
+        input(type="text" id="firstNameField" placeholder="First Name ")
       div.input__group
-        label(for="lastName") Last Name
-        input(type="text" id="lastName" placeholder="Last Name")
+        label(for="lastNameField") Last Name
+        input(type="text" id="lastNameField" placeholder="Last Name")
       div.input__group
-        label(for="email") E-mail
-        input(type="email" id="email" placeholder="E-mail")
+        label(for="emailField") E-mail
+        input(type="email" id="emailField" placeholder="E-mail")
       div.input__group
-        label(for="password") Password
-        input(type="password" id="password" placeholder="*******")
+        label(for="passwordField") Password
+        input(type="password" id="passwordField" placeholder="*******")
       div.input__group
         ChangeMethodButtonComponent
         CreateAccountButtonComponent
@@ -78,7 +78,7 @@ CopyrightComponent
 .input__group {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   font-size: 1.6rem;
   & > input {
@@ -102,15 +102,15 @@ CopyrightComponent
     grid-row: 1 / 2;
   }
   &:nth-child(3) {
-    grid-column: 1 / -1;
+    grid-column: 1 / 3;
     grid-row: 2 / 3;
   }
   &:nth-child(4) {
-    grid-column: 1 / -1;
+    grid-column: 1 / 3;
     grid-row: 3 / 4;
   }
   &:nth-child(5) {
-    grid-column: 1 / -1;
+    grid-column: 1 / 3;
     grid-row: 4 / 5;
 
     display: grid;

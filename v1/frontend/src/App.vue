@@ -2,20 +2,38 @@
 RouterView
 </template>
 <script setup>
-import { provide, ref } from "vue";
+import { inject, onMounted, provide, ref } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const appAxios = inject("AppAxios");
+
+onMounted(() => {
+  appAxios.get("/campaigns").then((response) => {
+    // console.log("response.data :>> ", response.data);
+    store.commit("_setCampaigns", response.data);
+  });
+  appAxios.get("/categories").then((response) => {
+    store.commit("_setCategories", response.data);
+  });
+  appAxios.get("/requests").then((response) => {
+    store.commit("_setDonateRequests", response.data);
+  });
+});
 
 const kebabCase = (str) => {
   return str.toLowerCase().replace(/[\s&]+/g, "-");
 };
-
-const donateRequestList = ref([
+provide("KebabCaseGenerator", kebabCase);
+// provide("RequestList", donateRequestList);
+/* const donateRequestList = ref([
   {
     id: 1,
     title: "I need ... for ...",
     description: "To be able to finish my education, I need ...",
     description_long:
       "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
+    user_image: "@/assets/images/user_image.jpg",
     categoryList: [1, 3, 6],
     category_color: "#1D81B9",
   },
@@ -239,7 +257,5 @@ const donateRequestList = ref([
     categoryList: [1, 3, 6],
     category_color: "#A8690B",
   },
-]);
-provide("KebabCaseGenerator", kebabCase);
-provide("RequestList", donateRequestList);
+]); */
 </script>

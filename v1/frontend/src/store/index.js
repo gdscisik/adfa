@@ -12,6 +12,7 @@ export default createStore({
     campaigns: [],
     donateRequests: [],
     userDonateRequests: [],
+    categories: [],
   },
   mutations: {
     _setUser(state, user) {
@@ -28,6 +29,9 @@ export default createStore({
     },
     _setDonateRequests(state, requests) {
       state.donateRequests = requests;
+    },
+    _setCategories(state, categories) {
+      state.categories = categories;
     },
     /* _setBookmarkList(state, bookmarkList) {
       state.bookmarkList = bookmarkList;
@@ -70,6 +74,9 @@ export default createStore({
     },
     _getCampaigns(state) {
       return state.campaigns;
+    },
+    _getCategories(state) {
+      return state?.categories || [];
     },
     _getDonateRequests(state) {
       return state?.donateRequests || [];

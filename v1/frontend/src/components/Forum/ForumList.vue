@@ -1,7 +1,8 @@
 <template lang="pug">
 div.container
   ul.forum__list
-    ForumListItem(v-for="data in _getDonateRequestList" :key="data.id" :item="data")
+    ForumListItem(v-for="data in _getDonateRequests" :key="data.id" :item="data")
+    //- ForumListItem(v-for="data in requests" :key="data.id" :item="data")
 </template>
 <!-- <script>
 import { appAxios } from "../../utils/appAxios";
@@ -32,7 +33,7 @@ export default {
 </script> -->
 <script setup>
 import ForumListItem from "./ForumListItem.vue";
-import { inject, computed, reactive, onMounted } from "vue";
+import { inject, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -41,16 +42,14 @@ const appAxios = inject("AppAxios");
 const _getDonateRequests = computed(() => {
   return store.getters._getDonateRequests;
 });
-
+// const requests = inject("RequestList");
 onMounted(() => {
-  appAxios.get("/campaigns").then((response) => {
+  appAxios.get("/requests").then((response) => {
     console.log("response.data :>> ", response.data);
-    store.commit("_setCampaigns", response.data);
+    store.commit("_setDonateRequests", response.data);
   });
 });
-const _getDonateRequestList = computed(() => {
-  return store.getters._getCampaigns;
-});
+
 /* const _getSaltKey = computed(() => {
   return store.getters._getSaltKey;
 });
