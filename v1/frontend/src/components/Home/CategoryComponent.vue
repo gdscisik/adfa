@@ -1,5 +1,5 @@
 <template lang="pug">
-div.container.container--small.category 
+div.container.container--full.category 
   h2.category__title Help in #[span 7] categories all around the #[span World]
   CategoryListComponent
 </template>

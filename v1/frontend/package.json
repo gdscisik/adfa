@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "sass": "^1.58.2",
     "secure-ls": "^1.2.6",
     "socket.io-client": "^4.5.1",

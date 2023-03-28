@@ -1,6 +1,6 @@
 <template lang="pug">
 button.button.button--open-new-request 
-  RouterLink(:to="{name: 'Forum'}") Open New Request
+  RouterLink(:to="{name: 'OpenNewDonateRequest'}") Open New Request
 </template>
 <style lang="scss">
 button.button.button--open-new-request {

@@ -1,11 +1,12 @@
 import axios from "axios";
-
-const PORT = 3232 || process.env.PORT;
+// import dotenv from "dotenv";
+// dotenv.config();
+const PORT = 3232 || process.env.BACKEND_PORT;
 
 export const appAxios = axios.create({
-  // baseURL: `http://localhost:${PORT}`,
+  baseURL: `http://localhost:${PORT}`,
   // baseURL: `https://adfa-world-default-rtdb.firebaseio.com`,
-  baseURL: `http://localhost:3232`,
+  // baseURL: `http://localhost:5173`,
 });
 
 export default appAxios;

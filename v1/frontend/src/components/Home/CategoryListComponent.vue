@@ -11,7 +11,7 @@ const categoryList = inject("CategoryListData");
 .category__list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2.4rem;
 }

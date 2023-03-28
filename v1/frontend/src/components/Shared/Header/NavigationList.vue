@@ -2,12 +2,12 @@
 import { ref } from "vue";
 import NavigationListItem from "../Header/NavigationListItem.vue";
 const destinations = ref([
-  { title: "Home", id: 1 },
-  { title: "About Us", id: 2 },
-  { title: "Media Center", id: 3 },
-  { title: "Plans & Reports", id: 4 },
-  { title: "Donate", id: 5 },
-  { title: "Forum", id: 6 },
+  { title: "Home", id: 1},
+  { title: "About Us", id: 2},
+  { title: "Media Center", id: 3},
+  { title: "Plans & Reports", id: 4},
+  { title: "Donate", id: 5},
+  { title: "Requests", id: 6},
 ]);
 </script>
 

@@ -1,11 +1,12 @@
 <template lang="pug">
+//- pre {{ props.requestItem }}
 RouterLink(:to='`/requests/${props.requestItem.id}`') 
-  li.donate-request__list-item(:style="{'background-color': `${props.requestItem.category_color}4D`}")
+  li.donate-request__list-item(:style="{'background-color': `${props.requestItem.categoryColor}4D`}")
     div.donate-request__list-item__image
-      img(:src="props.requestItem.user_image" :style="{'border': `3px solid ${props.requestItem.category_color}`}")
+      img(:src="props.requestItem.imageSource" :style="{'border': `3px solid ${props.requestItem.categoryColor}`}")
     div.donate-request__list-item__content
       h4 {{ props.requestItem.title }}
-      p {{ props.requestItem.description }}
+      p {{  "Empty Description" || props.requestItem.description.slice(0, 35) }}
 </template>
 <style lang="scss">
 .donate-request__list-item {
@@ -46,7 +47,16 @@ RouterLink(:to='`/requests/${props.requestItem.id}`')
 }
 </style>
 <script setup>
-import { ref } from "vue";
+import { ref, inject } from "vue";
+import { useStore } from "vuex";
+// const shortDescription = ref(
+//   props.requestItem.requestDescription.slice(0, 35) ||
+//    ,
+// );
+const appAxios = inject("AppAxios");
+const store = useStore();
+// const categoryData = store.getters.categories;
+// const getCategoryColor = categoryData.filter(i => i.categoryList[0]);
 const props = defineProps({
   requestItem: {
     type: Object,

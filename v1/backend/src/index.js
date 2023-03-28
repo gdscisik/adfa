@@ -16,8 +16,8 @@ const {
 config();
 loaders();
 // events();
-// const PORT = process.env.APP_PORT || 3232;
-const PORT = 3232 || 5173;
+const PORT = process.env.BACKEND_PORT || 3000;
+// const PORT = 3232 || 5173;
 const app = express();
 
 // const TEMP_DOMAIN = "http://localhost:5173";
@@ -38,22 +38,9 @@ app.use("/users", UserRouter);
 app.use("/categories", CategoryRouter);
 
 app.get("/", async (req, res) => {
-  res.render("index");
+  res.send("Welcome to the adfa.world");
 });
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
-/*app.post('/upload', function(req, res, next) {
-  var is = fs.createReadStream(req.files.upload.path),
-      fileExt = '', // I want to get the extension of the image here
-      os = fs.createWriteStream('public/images/users/' + req.session.adress + '.' + fileExt);
-}); */
-
-
-
-/*var firebaseRef = firebase.database().ref('emails');
-document.querySelector('#button button--help-anyone').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    firebaseRef.push("dyyenice@gmail.com");
-});*/
