@@ -7,7 +7,7 @@ module.exports = class Service {
     return this.model.find();
   } */
   async findById(query) {
-    return this.model.find(query);
+    return this.model.findById(query);
   }
   /* async findById(itemId) {
     return this.model.findById(itemId);
@@ -16,7 +16,10 @@ module.exports = class Service {
     return this.model.create(item);
   }
   async delete(query) {
-    return this.model.deleteOne(query);
+    return this.model.delete(query);
+  }
+  async deleteById(query) {
+    return this.model.deleteById(query);
   }
   /* async delete(itemId) {
     return this.model.deleteOne({ _id: itemId });
@@ -31,4 +34,3 @@ module.exports = class Service {
     return this.model.findOneAndUpdate(item, data, { new: true });
   } */
 };
-

@@ -19,11 +19,11 @@ const CampaignSchema = new Schema({
     type: String,
     required: true,
   },
-  fromDate: {
+  startDate: {
     type: Date,
     required: true,
   },
-  toDate: {
+  endDate: {
     type: Date,
     required: true,
   },

@@ -13,6 +13,7 @@ import RequestDetailPage from "../views/RequestDetailPage.vue";
 import CampaignDetailPage from "../views/CampaignDetailPage.vue";
 import CampaignsPage from "../views/CampaignsPage.vue";
 import CategoriesPage from "../views/CategoriesPage.vue";
+import OpenNewDonateRequestPage from "../views/OpenNewDonateRequestPage.vue";
 //import store from "../store";
 const routes = [
   {
@@ -61,7 +62,7 @@ const routes = [
     component: ReportsPage,
   }, */
   {
-    path: "/forum",
+    path: "/requests",
     name: "Forum",
     component: ForumPage,
   },
@@ -77,6 +78,11 @@ const routes = [
       componentName: "AppBookmarkListComponent",
     },*/
     component: DonatePage,
+  },
+  {
+    path: "/requests/new-request",
+    name: "OpenNewDonateRequest",
+    component: OpenNewDonateRequestPage,
   },
 ];
 

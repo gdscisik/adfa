@@ -13,6 +13,7 @@ import SeeMoreDonateRequestButton from "@/components/Shared/Buttons/SeeMoreDonat
   padding: 2.4rem;
   max-height: 120rem; // TODO
   overflow-x: hidden; // TODO
+  height: min-content;
   // margin-bottom: 10rem;
   margin: {
     top: 3.6rem;

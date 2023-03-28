@@ -1,44 +1,45 @@
 const { Schema, SchemaTypes, Model } = require("firefose");
-const { String, Date, Boolean, Number} = SchemaTypes;
+const { String, Date, Boolean, Number, Array } = SchemaTypes;
 
 const DonateRequestSchema = new Schema(
   {
     donateRequestId: {
       type: Number,
-      required: true,
     },
-    createdAt: {
+    createdDate: {
       type: Date,
-      required: true,
     },
     creatorId: {
       type: SchemaTypes.ObjectId,
       ref: "User",
       required: true,
     },
-    requestTitle: {
+    title: {
       type: String,
       required: true,
     },
-    requestDescription: {
+    description: {
       type: String,
       required: true,
     },
     attachment: {
       type: String,
-      required: true,
+    },
+    imageSource: {
+      type: String,
     },
     donatorId: {
       type: SchemaTypes.ObjectId,
       ref: "User",
-      required: true,
     },
     isActive: {
       type: Boolean,
-      required: true,
+    },
+    categoryList: {
+      type: Array, // TODO array'e cevir
     },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false, timestamps: true },
 );
 /* RequestSchema.post("save", (doc) => {
   SectionLogger.log({
@@ -49,4 +50,3 @@ const DonateRequestSchema = new Schema(
 
 const DonateRequestModel = new Model("DonateRequest", DonateRequestSchema);
 module.exports = DonateRequestModel;
-

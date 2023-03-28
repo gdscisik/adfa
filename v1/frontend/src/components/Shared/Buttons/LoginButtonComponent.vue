@@ -1,5 +1,5 @@
 <template lang="pug">
-button.button.button--create-account Login 
+button.button.button--create-account(@click="$router.push('/home')") Login 
 </template>
 <style lang="scss">
 button.button.button--create-account {

@@ -1,6 +1,7 @@
 <template lang="pug">
 //- RouterLink(:to="{name: DonateRequest}") 
 //- pre {{ props.item }}
+//- pre {{ props.item }}
 //- RouterLink(:to='`/requests/${props.item.id}`') 
 RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}") 
   li.forum__list-item(:style="{'background-color': `${props.item.categoryColor}4D`}")
@@ -10,8 +11,9 @@ RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}")
       div.forum__list-item-content-header 
         h3.forum__list-item-title {{ props.item.title }}
         //- span.forum__list-item-date {{ props.item.title }}
-        span.forum__list-item-date {{ props.item.createdDate }}
+        //- span.forum__list-item-date {{ props.item.createdDate }}
       p.forum__list-item-description {{ props.item.description }}
+      //- span.forum__list-item-date {{ props.item.createdDate }}
       div.forum__List-item-content-footer 
         ul.forum__list-item-categories
           li.forum__list-item-category(v-for="category in props.item.categoryList" :key="category" :style="{'background-color': `${props.item.category_color}4D`}") {{ category }}
@@ -37,26 +39,33 @@ onMounted(() => {
 <style lang="scss">
 .forum__list-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 2.4rem;
   padding: 1.8rem 2.4rem;
   border-radius: 1rem;
   &-image {
-    width: 30%;
-    overflow: hidden;
-    border-radius: 1.4rem;
+    // width: 20%;
+    // height: auto;
+    // overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     & img {
-      width: 100%;
+      // margin-inline: auto;
+      border-radius: 1.4rem;
+      // width: 100%;
+      width: 12.8rem;
       object-fit: cover;
       object-position: center;
     }
   }
   &-content {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     flex-direction: column;
     gap: 1.2rem;
-
     &-header {
       display: flex;
       align-items: center;

@@ -30,7 +30,7 @@ const sitemapData = ref([
   "Media Center",
   "Plans & Reports",
   "Donate",
-  "Forum",
+  "Requests",
 ]);
 </script>
 <style lang="scss">

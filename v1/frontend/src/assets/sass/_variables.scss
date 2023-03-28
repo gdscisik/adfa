@@ -27,7 +27,10 @@
 html {
   font-size: 62.5%;
   @include mixins.responsive(desktop) {
-    font-size: 70%;
+    font-size: 55%;
+  }
+  @include mixins.responsive(tab-land) {
+    font-size: 45%;
   }
 }
 body {
@@ -55,7 +58,10 @@ button {
     width: 100%;
   }
   &--small {
-    width: 100%;
+    width: 50%;
+  }
+  &--quarter {
+    width: 25%;
   }
 }
 .grid {
