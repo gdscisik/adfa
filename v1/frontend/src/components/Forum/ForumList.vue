@@ -45,7 +45,7 @@ const _getDonateRequests = computed(() => {
 // const requests = inject("RequestList");
 onMounted(() => {
   appAxios.get("/requests").then((response) => {
-    console.log("response.data :>> ", response.data);
+    // console.log("response.data :>> ", response.data);
     store.commit("_setDonateRequests", response.data);
   });
 });

@@ -11,4 +11,9 @@ const _getDonateRequests = () => {
   // return store.getters._getDonateRequests.slice(0, 5);
   return store.getters._getDonateRequests;
 };
+
+const _getCategoryList = () => {
+  return store.getters._getCategoryList;
+};
+// const 
 </script>

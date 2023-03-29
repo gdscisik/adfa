@@ -13,6 +13,65 @@ export default createStore({
     donateRequests: [],
     userDonateRequests: [],
     categories: [],
+    categoryList: [
+      {
+        id: 1,
+        name: "Education",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/education.png",
+        categoryColor: "#1D81B9",
+        backgroundCategoryColor: "#1D81B94D",
+      },
+      {
+        id: 2,
+        name: "Food",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/food.png",
+        categoryColor: "#B91D1D",
+        backgroundCategoryColor: "#B91D1D4D",
+      },
+      {
+        id: 3,
+        name: "Personal Needs",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source:
+          "../../../src/assets/images/categories/personal-needs.png",
+        categoryColor: "#B3CC17",
+        backgroundCategoryColor: "#B3CC174D",
+      },
+      {
+        id: 4,
+        name: "Natural Disasters",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/disasters.png",
+        categoryColor: "#0D921B",
+        backgroundCategoryColor: "#0D921B4D",
+      },
+      {
+        id: 5,
+        name: "Scholarship",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/scholarships.png",
+        categoryColor: "#6A1CA6",
+        backgroundCategoryColor: "#6A1CA64D",
+      },
+      {
+        id: 6,
+        name: "Institutions",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/institutions.png",
+        categoryColor: "#0F4632",
+        backgroundCategoryColor: "#0F46324D",
+      },
+      {
+        id: 7,
+        name: "Clothes",
+        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        image_source: "../../../src/assets/images/categories/clothes.png",
+        categoryColor: "#A8690B",
+        backgroundCategoryColor: "#A8690B4D",
+      },
+    ],
   },
   mutations: {
     _setUser(state, user) {
@@ -58,6 +117,9 @@ export default createStore({
     }, */
   },
   getters: {
+    _getCategoryList(state) {
+      return state.categoryList;
+    },
     _isAuthenticated(state) {
       return state.user !== null;
     },

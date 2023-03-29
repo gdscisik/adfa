@@ -1,11 +1,11 @@
 <template lang="pug">
 div.card 
-  div.card__side.card__side--front(:style="{'background-image': `url(${props.categoryItem.image_source})`, 'border': `0.4rem solid ${props.categoryItem.category_color}`}")
-  div.card__side.card__side--back(:style="{'background-color': `${props.categoryItem.category_color}4D`, 'border': `0.4rem solid ${props.categoryItem.category_color}`}")
+  div.card__side.card__side--front(:style="{'background-image': `url(${props.categoryItem.image_source})`, 'border': `0.4rem solid ${props.categoryItem.categoryColor}`}")
+  div.card__side.card__side--back(:style="{'background-color': `${props.categoryItem.backgroundCategoryColor}`, 'border': `0.4rem solid ${props.categoryItem.categoryColor}`}")
     div
       h3.card__side__title For {{ props.categoryItem.name }}
       p.card__side__description {{ props.categoryItem.description }}
-      CategoryDonateButtonComponent(:buttonColor="props.categoryItem.category_color")
+      CategoryDonateButtonComponent(:buttonColor="props.categoryItem.categoryColor")
 </template>
 <script setup>
 import CategoryDonateButtonComponent from "@/components/Shared/Buttons/CategoryDonateButtonComponent.vue";

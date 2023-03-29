@@ -1,10 +1,10 @@
 <template lang="pug">
 //- RouterLink(:to="{name: DonateRequest}") 
 //- pre {{ props.item }}
-//- pre {{ props.item }}
 //- RouterLink(:to='`/requests/${props.item.id}`') 
 RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}") 
-  li.forum__list-item(:style="{'background-color': `${props.item.categoryColor}4D`}")
+  //- li.forum__list-item(:style="{'background-color': `${findCategoryColor(props.item.categoryList[0].backgroundCategoryColor)}`}")
+  li.forum__list-item()
     div.forum__list-item-image
       img(:src="props.item.imageSource")
     div.forum__list-item-content
@@ -16,12 +16,13 @@ RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}")
       //- span.forum__list-item-date {{ props.item.createdDate }}
       div.forum__List-item-content-footer 
         ul.forum__list-item-categories
-          li.forum__list-item-category(v-for="category in props.item.categoryList" :key="category" :style="{'background-color': `${props.item.category_color}4D`}") {{ category }}
-        //- DonateButtonComponent
+          ForumListItemCategories(v-for="category in props.item.categoryList" :key="category" :category="category")
+          //- li.forum__list-item-category(v-for="(category, index) in props.item.categoryList" :key="category") {{ category }}
+            //- pre {{ findCategoryColor(category)[0].backgroundCategoryColor }}
+          //- li.forum__list-item-category(v-for="(category, index) in props.item.categoryList" :key="category" :style="{'background-color': `${findCategoryColor(props.item.categoryList[index])[0].backgroundCategoryColor}`}") {{ category }}
 </template>
 <script setup>
-import { inject, onMounted } from "vue";
-// import DonateButtonComponent from "@/components/Shared/Buttons/DonateButtonComponent.vue";
+import ForumListItemCategories from "./ForumListItemCategories.vue";
 const props = defineProps({
   item: {
     type: Object,
@@ -29,12 +30,6 @@ const props = defineProps({
     default: {},
   },
 });
-/* const appAxios = inject("AppAxios");
-onMounted(() => {
-  appAxios.get(`/requests/${toString(props.item.id)}`).then((response) => {
-    console.log("response :>> ", response);
-  });
-}); */
 </script>
 <style lang="scss">
 .forum__list-item {
@@ -44,6 +39,7 @@ onMounted(() => {
   gap: 2.4rem;
   padding: 1.8rem 2.4rem;
   border-radius: 1rem;
+  // width: 100%;
   &-image {
     // width: 20%;
     // height: auto;

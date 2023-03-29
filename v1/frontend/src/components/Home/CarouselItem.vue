@@ -38,7 +38,7 @@ const props = defineProps({
   width: 100%;
   object-fit: cover;
   object-position: center;
-  filter: opacity(0.75);
-  background-blend-mode: darken;
+  filter: opacity(0.85);
+  // background-blend-mode: darken;
 }
 </style>

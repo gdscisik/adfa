@@ -20,242 +20,81 @@ onMounted(() => {
     store.commit("_setDonateRequests", response.data);
   });
 });
-
+const findCategoryColor = (itemName) => {
+  const object = store.getters._getCategoryList.filter(
+    (category) => category.name == itemName,
+  );
+  return object;
+};
 const kebabCase = (str) => {
   return str.toLowerCase().replace(/[\s&]+/g, "-");
 };
 provide("KebabCaseGenerator", kebabCase);
-// provide("RequestList", donateRequestList);
-/* const donateRequestList = ref([
+provide("CategoryColorFinder", findCategoryColor);
+/* const categoryList = ref([
   {
     id: 1,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "@/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#1D81B9",
+    name: "Education",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/education.png",
+    categoryColor: "#1D81B9",
+    backgroundCategoryColor: "#1D81B94D",
   },
   {
     id: 2,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B91D1D",
+    name: "Food",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/food.png",
+    categoryColor: "#B91D1D",
+    backgroundCategoryColor: "#B91D1D4D",
   },
   {
     id: 3,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B3CC17",
+    name: "Personal Needs",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/personal-needs.png",
+    categoryColor: "#B3CC17",
+    backgroundCategoryColor: "#B3CC174D",
   },
   {
     id: 4,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0D921B",
+    name: "Natural Disasters",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/disasters.png",
+    categoryColor: "#0D921B",
+    backgroundCategoryColor: "#0D921B4D",
   },
   {
     id: 5,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#6A1CA6",
+    name: "Scholarship",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/scholarships.png",
+    categoryColor: "#6A1CA6",
+    backgroundCategoryColor: "#6A1CA64D",
   },
   {
     id: 6,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0F4632",
+    name: "Institutions",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/institutions.png",
+    categoryColor: "#0F4632",
+    backgroundCategoryColor: "#0F46324D",
   },
   {
     id: 7,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#A8690B",
-  },
-  {
-    id: 8,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#1D81B9",
-  },
-  {
-    id: 9,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B91D1D",
-  },
-  {
-    id: 10,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B3CC17",
-  },
-  {
-    id: 11,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0D921B",
-  },
-  {
-    id: 12,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#6A1CA6",
-  },
-  {
-    id: 13,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0F4632",
-  },
-  {
-    id: 14,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#A8690B",
-  },
-  {
-    id: 8,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#1D81B9",
-  },
-  {
-    id: 9,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B91D1D",
-  },
-  {
-    id: 10,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#B3CC17",
-  },
-  {
-    id: 11,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0D921B",
-  },
-  {
-    id: 12,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#6A1CA6",
-  },
-  {
-    id: 13,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#0F4632",
-  },
-  {
-    id: 14,
-    title: "I need ... for ...",
-    description: "To be able to finish my education, I need ...",
-    description_long:
-      "To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ... To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...To be able to finish my education, I need ...",
-    user_image: "./src/assets/images/user_image.jpg",
-    user_image: "./src/assets/images/user_image.jpg",
-    categoryList: [1, 3, 6],
-    category_color: "#A8690B",
+    name: "Clothes",
+    description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+    image_source: "../../../src/assets/images/categories/clothes.png",
+    categoryColor: "#A8690B",
+    backgroundCategoryColor: "#A8690B4D",
   },
 ]); */
+/*"#1D81B9",
+  "#B91D1D",
+  "#B3CC17",
+  "#0D921B",
+  "#6A1CA6",
+  "#0F4632",
+  "#A8690B",*/
+// provide("CategoryListData", categoryList);
 </script>

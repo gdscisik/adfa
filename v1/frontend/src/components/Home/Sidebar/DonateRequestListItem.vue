@@ -1,18 +1,20 @@
 <template lang="pug">
 //- pre {{ props.requestItem }}
+//- pre {{ findCategoryColor().categoryColor }}
 RouterLink(:to='`/requests/${props.requestItem.id}`') 
-  li.donate-request__list-item(:style="{'background-color': `${props.requestItem.categoryColor}4D`}")
+  li.donate-request__list-item(:style="{'background-color': `${colorObject[0].backgroundCategoryColor}`}")
     div.donate-request__list-item__image
-      img(:src="props.requestItem.imageSource" :style="{'border': `3px solid ${props.requestItem.categoryColor}`}")
+      img(:src="props.requestItem.imageSource" :style="{'border': `3px solid ${colorObject[0].categoryColor}`}")
     div.donate-request__list-item__content
       h4 {{ props.requestItem.title }}
-      p {{  "Empty Description" || props.requestItem.description.slice(0, 35) }}
+      p {{  props.requestItem.description.substring(0, 45) }}...
 </template>
 <style lang="scss">
 .donate-request__list-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: flex-start;
   gap: 1.6rem;
   padding: 1.6rem;
   margin: 1rem 0;
@@ -21,11 +23,14 @@ RouterLink(:to='`/requests/${props.requestItem.id}`')
     flex-direction: row-reverse;
   }
   &__image {
-    width: 6.7rem;
-    height: 6.7rem;
+    // display: flex;
+    // align-items: flex-start;
+    // justify-content: center;
     & img {
-      width: 100%;
-      height: 100%;
+      width: 6.7rem;
+      height: 6.7rem;
+      // width: 100%;
+      // height: 100%;
       border-radius: 100%;
       object-fit: cover;
       object-position: center;
@@ -47,14 +52,26 @@ RouterLink(:to='`/requests/${props.requestItem.id}`')
 }
 </style>
 <script setup>
-import { ref, inject } from "vue";
+import { ref, inject, onMounted } from "vue";
 import { useStore } from "vuex";
-// const shortDescription = ref(
-//   props.requestItem.requestDescription.slice(0, 35) ||
-//    ,
-// );
-const appAxios = inject("AppAxios");
 const store = useStore();
+
+// const _getCategoryList = () => {
+//   return store.getters._getCategoryList;
+// };
+// const findCategoryColor = () => {
+//   const object = _getCategoryList().filter(
+//     (category) => category.name == props.requestItem.categoryList[1],
+//   );
+//   // console.log("color :>> ", color);
+//   return object;
+// };
+const findCategoryColor = inject("CategoryColorFinder");
+const colorObject = findCategoryColor(props.requestItem.categoryList[1]);
+onMounted(() => {
+  console.log("colorObject :>> ", colorObject);
+});
+
 // const categoryData = store.getters.categories;
 // const getCategoryColor = categoryData.filter(i => i.categoryList[0]);
 const props = defineProps({
@@ -64,6 +81,7 @@ const props = defineProps({
     default: {},
   },
 });
+
 const data = ref([
   "#1D81B9",
   "#B91D1D",

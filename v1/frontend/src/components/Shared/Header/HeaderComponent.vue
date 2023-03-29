@@ -7,7 +7,7 @@ header
   div.container.grid
     nav.nav 
       div.navigation__logo 
-        RouterLink(:to="{name: 'Main'}")  
+        RouterLink(:to="{name: 'Home'}")  
           img(src="@/assets/images/icons/adfa-logo-yatay.svg")
       NavigationList
       div.navigation__right
