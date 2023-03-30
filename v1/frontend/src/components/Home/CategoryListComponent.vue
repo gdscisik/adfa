@@ -5,7 +5,7 @@ div.category__list
 <script setup>
 import CategoryListItem from "./CategoryListItem.vue";
 import { inject, onMounted, computed } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "vuex"; 
 const store = useStore();
 
 const _getCategoryList = computed(() => {
