@@ -17,7 +17,7 @@ export default createStore({
       {
         id: 1,
         name: "Education",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "For those who need educational tools and resources.    ",
         image_source: "../../../src/assets/images/categories/education.png",
         categoryColor: "#1D81B9",
         backgroundCategoryColor: "#1D81B94D",
@@ -25,7 +25,7 @@ export default createStore({
       {
         id: 2,
         name: "Food",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "End hunger, provide nutritious, sufficient food, drink.",
         image_source: "../../../src/assets/images/categories/food.png",
         categoryColor: "#B91D1D",
         backgroundCategoryColor: "#B91D1D4D",
@@ -33,7 +33,7 @@ export default createStore({
       {
         id: 3,
         name: "Personal Needs",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "Hygiene products, personal care and cleaning needs.    ",
         image_source:
           "../../../src/assets/images/categories/personal-needs.png",
         categoryColor: "#B3CC17",
@@ -42,7 +42,7 @@ export default createStore({
       {
         id: 4,
         name: "Natural Disasters",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "Assistance to people affected by natural disasters.    ",
         image_source: "../../../src/assets/images/categories/disasters.png",
         categoryColor: "#0D921B",
         backgroundCategoryColor: "#0D921B4D",
@@ -50,7 +50,7 @@ export default createStore({
       {
         id: 5,
         name: "Scholarship",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "Scholarships for education, internship and projects.   ",
         image_source: "../../../src/assets/images/categories/scholarships.png",
         categoryColor: "#6A1CA6",
         backgroundCategoryColor: "#6A1CA64D",
@@ -58,7 +58,7 @@ export default createStore({
       {
         id: 6,
         name: "Institutions",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "Donations to Charity Organizations around the World.   ",
         image_source: "../../../src/assets/images/categories/institutions.png",
         categoryColor: "#0F4632",
         backgroundCategoryColor: "#0F46324D",
@@ -66,7 +66,7 @@ export default createStore({
       {
         id: 7,
         name: "Clothes",
-        description: "Lorem ipsum dolor sit amet, dolor lorem ipsum sit amet.",
+        description: "Clothing support for the poor and those in urgent need.",
         image_source: "../../../src/assets/images/categories/clothes.png",
         categoryColor: "#A8690B",
         backgroundCategoryColor: "#A8690B4D",
