@@ -3,7 +3,7 @@ div.campaign-slider-list-item
   img(:src="props.campaignItem.imageSource")
   RouterLink(:to='`/campaigns/${props.campaignItem.id}`') 
     h3 {{ props.campaignItem.title }}   
-  p {{ props.campaignItem.description }} 
+  p {{ props.campaignItem.description.substring(0, 100) }}...
   DonateProgressBar
   DonateButtonComponent.button--donate(:campaignItemId = "props.campaignItem.id")
 </template>
@@ -34,6 +34,7 @@ const props = defineProps({
   & img {
     width: 100%;
     border-radius: 0.5rem;
+    height: 20rem;
   }
   & h3 {
     width: 100%;

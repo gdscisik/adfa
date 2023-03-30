@@ -53,8 +53,8 @@ RouterLink(:to='`/requests/${props.requestItem.id}`')
 </style>
 <script setup>
 import { ref, inject, onMounted } from "vue";
-import { useStore } from "vuex";
-const store = useStore();
+// import { useStore } from "vuex";
+// const store = useStore();
 
 // const _getCategoryList = () => {
 //   return store.getters._getCategoryList;

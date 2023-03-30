@@ -2,7 +2,7 @@
 RouterView
 </template>
 <script setup>
-import { inject, onMounted, provide, ref } from "vue";
+import { inject, onMounted, provide } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();

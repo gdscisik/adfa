@@ -1,5 +1,6 @@
 <template lang="pug">
-li.forum__list-item-category(:style="{'background-color': `${color.backgroundCategoryColor}`}") {{ props.category }}
+li.forum__list-item-category {{ props.category }}
+//- li.forum__list-item-category(:style="{'background-color': `${color.backgroundCategoryColor}`}") {{ props.category }}
 //- pre {{  }}
 //- pre.forum__list-item-category {{ props.colorObject }} findCategoryColor(category)[0]
 </template>
@@ -14,6 +15,6 @@ const props = defineProps({
   },
 });
 onMounted(() => {
-  console.log("color :>> ", color[0]);
+  // console.log("color :>> ", color[0]);
 });
 </script>

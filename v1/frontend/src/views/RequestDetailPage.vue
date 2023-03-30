@@ -4,9 +4,11 @@ div.container
   div.grid.grid--1-1.container--request-page
     div.request__image
       img(:src="request.imageSource")
-      div.request__content
-        h2.request__content-title {{ request.title }}
-        p.request__content-paragraph {{ request.description }}
+    div.request__content
+      h2.request__content-title {{ request.title }}
+      p.request__content-paragraph {{ request.description }}
+      button.button.button--pay-amount Pay Now
+  //- div.container.container--request-page-donate
     div.request__donate
       div.request__donate-inputs
         div.request__donate-inputs-identify
@@ -111,7 +113,7 @@ p.or {
     }
   }
   &__image {
-    height: 75%;
+    // height: 75%;
     & img {
       object-fit: cover;
       object-position: center;

@@ -12,8 +12,8 @@ const _getDonateRequests = () => {
   return store.getters._getDonateRequests;
 };
 
-const _getCategoryList = () => {
+/* const _getCategoryList = () => {
   return store.getters._getCategoryList;
 };
-// const 
+*/
 </script>

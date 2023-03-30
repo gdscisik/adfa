@@ -16,8 +16,8 @@ const {
 config();
 loaders();
 // events();
-const PORT = process.env.BACKEND_PORT || 3232;  
-// const PORT = 3232 || 5173;
+// const PORT = 3232 || process.env.BACKEND_PORT;
+const PORT = 3232 || 5173;
 const app = express();
 
 // const TEMP_DOMAIN = "http://localhost:5173";
