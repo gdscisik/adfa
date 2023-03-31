@@ -18,8 +18,8 @@ const _getFirstFiveCampaigns = () => {
   // display: inline;
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  // overflow-x: scroll;
+  // overflow-y: hidden;
   // white-space: nowrap;
   gap: 2.4rem;
   padding: 1.4rem 2.8rem;

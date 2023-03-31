@@ -3,8 +3,8 @@
 //- pre {{ props.item }}
 //- RouterLink(:to='`/requests/${props.item.id}`') 
 RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}") 
-  //- li.forum__list-item(:style="{'background-color': `${findCategoryColor(props.item.categoryList[0].backgroundCategoryColor)}`}")
-  li.forum__list-item()
+  //- li.forum__list-item()
+  li.forum__list-item(:style="{'background-color': `${colorObject[0].backgroundCategoryColor}`}")
     div.forum__list-item-image
       img(:src="props.item.imageSource")
     div.forum__list-item-content
@@ -20,9 +20,14 @@ RouterLink(:to="{name: 'RequestDetail', params: {id: `${props.item.id}`}}")
           //- li.forum__list-item-category(v-for="(category, index) in props.item.categoryList" :key="category") {{ category }}
             //- pre {{ findCategoryColor(category)[0].backgroundCategoryColor }}
           //- li.forum__list-item-category(v-for="(category, index) in props.item.categoryList" :key="category" :style="{'background-color': `${findCategoryColor(props.item.categoryList[index])[0].backgroundCategoryColor}`}") {{ category }}
+      //- pre {{ colorObject[0].backgroundCategoryColor }}
 </template>
 <script setup>
 import ForumListItemCategories from "./ForumListItemCategories.vue";
+import { inject } from "vue";
+
+const findCategoryColor = inject("CategoryColorFinder")
+const colorObject = findCategoryColor(props.item.categoryList[0]);
 const props = defineProps({
   item: {
     type: Object,

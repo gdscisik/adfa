@@ -1,6 +1,7 @@
 <template lang="pug">
 button.button.button--help-anyone
-  RouterLink(:to="{name: 'Donate'}") 
+  //- RouterLink(:to="{name: 'Donate'}") 
+  RouterLink(:to="{name: 'Forum'}") 
     span Help Anyone 
     img(src="@/assets/images/icons/help-anyone.png")
 </template>
@@ -11,6 +12,7 @@ button.button.button--help-anyone
   gap: 2.4rem;
   font-weight: 600;
   disl & img {
+    /* disl & img { */  
     width: 3.6rem;
     transform: scale(1.75);
   }

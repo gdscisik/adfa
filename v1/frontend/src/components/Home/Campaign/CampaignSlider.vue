@@ -5,7 +5,7 @@ div.campaign-slider
 <style lang="scss">
 .campaign-slider {
   padding: 2.4rem;
-  overflow-x: scroll;
+  // overflow-x: scroll;
   overflow-y: hidden;
   margin: 5.4rem auto;
 }

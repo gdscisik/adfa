@@ -1,6 +1,6 @@
 <template lang="pug">
-li.forum__list-item-category {{ props.category }}
-//- li.forum__list-item-category(:style="{'background-color': `${color.backgroundCategoryColor}`}") {{ props.category }}
+//- li.forum__list-item-category {{ props.category }}
+li.forum__list-item-category(:style="{'background-color': `${color[0].backgroundCategoryColor}`}") {{ props.category }}
 //- pre {{  }}
 //- pre.forum__list-item-category {{ props.colorObject }} findCategoryColor(category)[0]
 </template>
