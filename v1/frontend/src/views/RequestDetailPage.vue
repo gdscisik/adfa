@@ -7,7 +7,7 @@ div.container
     div.request__content
       h2.request__content-title {{ request.title }}
       p.request__content-paragraph {{ request.description }}
-      button.button.button--pay-amount #[a(href="https://iyzi.link/AJBxeQ") Donate Now]
+      button.button.button--pay-amount #[a(href="https://buy.stripe.com/7sI3fQfcl1dl17W4gi") Donate Now]
   //- div.container.container--request-page-donate
     div.request__donate
       div.request__donate-inputs
